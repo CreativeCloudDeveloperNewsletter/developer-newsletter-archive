@@ -5,336 +5,550 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Cloud Developer Newsletter Archive</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            max-width: 1000px;
-            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
         }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         h1 {
             color: #0066cc;
-            border-bottom: 3px solid #0066cc;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 2.5em;
         }
-        .newsletter-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
         }
-        .newsletter-item {
+
+        .search-container {
             background-color: white;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1em;
+            border: 2px solid #ddd;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-decoration: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .search-result-title {
+            font-weight: bold;
             color: #0066cc;
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 5px;
         }
-        .newsletter-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .newsletter-item h3 {
-            margin: 0 0 5px 0;
-            color: #0066cc;
-        }
-        .newsletter-item p {
-            margin: 5px 0 0 0;
+
+        .search-result-preview {
             color: #666;
             font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            background-color: #fff59d;
+            font-weight: bold;
+        }
+
+        .newsletter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .newsletter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thumbnail-number {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .thumbnail-content {
+            font-size: 3em;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-label {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .card-date {
+            color: #888;
+            font-size: 0.85em;
+        }
+
+        .filter-controls {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .filter-button {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background-color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background-color: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .no-results {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.1em;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Creative Cloud Developer Newsletter Archive</h1>
-    <p>Browse all past editions of the Creative Cloud Developer Newsletter.</p>
-    
-    <div class="newsletter-list">
-        <a href="01July2018.html" class="newsletter-item">
-            <h3>01 - July 2018</h3>
-        </a>
-        <a href="02Aug2018.html" class="newsletter-item">
-            <h3>02 - August 2018</h3>
-        </a>
-        <a href="03Sep2018.html" class="newsletter-item">
-            <h3>03 - September 2018</h3>
-        </a>
-        <a href="04Oct2018.html" class="newsletter-item">
-            <h3>04 - October 2018</h3>
-        </a>
-        <a href="05Nov2018.html" class="newsletter-item">
-            <h3>05 - November 2018</h3>
-        </a>
-        <a href="06Dec2018.html" class="newsletter-item">
-            <h3>06 - December 2018</h3>
-        </a>
-        <a href="07Jan2019.html" class="newsletter-item">
-            <h3>07 - January 2019</h3>
-        </a>
-        <a href="08Feb2019.html" class="newsletter-item">
-            <h3>08 - February 2019</h3>
-        </a>
-        <a href="09Mar2019.html" class="newsletter-item">
-            <h3>09 - March 2019</h3>
-        </a>
-        <a href="10Apr2019.html" class="newsletter-item">
-            <h3>10 - April 2019</h3>
-        </a>
-        <a href="11may2019.html" class="newsletter-item">
-            <h3>11 - May 2019</h3>
-        </a>
-        <a href="12Jun2019.html" class="newsletter-item">
-            <h3>12 - June 2019</h3>
-        </a>
-        <a href="13Jul2019.html" class="newsletter-item">
-            <h3>13 - July 2019</h3>
-        </a>
-        <a href="14Aug2019.html" class="newsletter-item">
-            <h3>14 - August 2019</h3>
-        </a>
-        <a href="15Sep2019.html" class="newsletter-item">
-            <h3>15 - September 2019</h3>
-        </a>
-        <a href="16Oct2019.html" class="newsletter-item">
-            <h3>16 - October 2019</h3>
-        </a>
-        <a href="17Nov2019.html" class="newsletter-item">
-            <h3>17 - November 2019</h3>
-        </a>
-        <a href="18Dec2019.html" class="newsletter-item">
-            <h3>18 - December 2019</h3>
-        </a>
-        <a href="19Feb2020.html" class="newsletter-item">
-            <h3>19 - February 2020</h3>
-        </a>
-        <a href="20Mar2020.html" class="newsletter-item">
-            <h3>20 - March 2020</h3>
-        </a>
-        <a href="21May2020.html" class="newsletter-item">
-            <h3>21 - May 2020</h3>
-        </a>
-        <a href="22June2020.html" class="newsletter-item">
-            <h3>22 - June 2020</h3>
-        </a>
-        <a href="23June2020.html" class="newsletter-item">
-            <h3>23 - June 2020</h3>
-        </a>
-        <a href="24Jul2020.html" class="newsletter-item">
-            <h3>24 - July 2020</h3>
-        </a>
-        <a href="25Aug2020.html" class="newsletter-item">
-            <h3>25 - August 2020</h3>
-        </a>
-        <a href="26Sep2020.html" class="newsletter-item">
-            <h3>26 - September 2020</h3>
-        </a>
-        <a href="27Oct2020.html" class="newsletter-item">
-            <h3>27 - October 2020</h3>
-        </a>
-        <a href="28Nov2020.html" class="newsletter-item">
-            <h3>28 - November 2020</h3>
-        </a>
-        <a href="29Dec2020.html" class="newsletter-item">
-            <h3>29 - December 2020</h3>
-        </a>
-        <a href="30Jan2021.html" class="newsletter-item">
-            <h3>30 - January 2021</h3>
-        </a>
-        <a href="31Feb2021.html" class="newsletter-item">
-            <h3>31 - February 2021</h3>
-        </a>
-        <a href="32Mar2021.html" class="newsletter-item">
-            <h3>32 - March 2021</h3>
-        </a>
-        <a href="33Apr2021.html" class="newsletter-item">
-            <h3>33 - April 2021</h3>
-        </a>
-        <a href="34Jun2021.html" class="newsletter-item">
-            <h3>34 - June 2021</h3>
-        </a>
-        <a href="35jun2021.html" class="newsletter-item">
-            <h3>35 - June 2021</h3>
-        </a>
-        <a href="36junsurvey2021.html" class="newsletter-item">
-            <h3>36 - June Survey 2021</h3>
-        </a>
-        <a href="37Aug2021.html" class="newsletter-item">
-            <h3>37 - August 2021</h3>
-        </a>
-        <a href="38Oct2021.html" class="newsletter-item">
-            <h3>38 - October 2021</h3>
-        </a>
-        <a href="39Oct2021.html" class="newsletter-item">
-            <h3>39 - October 2021</h3>
-        </a>
-        <a href="40Nov2021.html" class="newsletter-item">
-            <h3>40 - November 2021</h3>
-        </a>
-        <a href="41DecNPS2021.html" class="newsletter-item">
-            <h3>41 - December NPS 2021</h3>
-        </a>
-        <a href="42Dec2021.html" class="newsletter-item">
-            <h3>42 - December 2021</h3>
-        </a>
-        <a href="43Jan2022.html" class="newsletter-item">
-            <h3>43 - January 2022</h3>
-        </a>
-        <a href="44Mar2022.html" class="newsletter-item">
-            <h3>44 - March 2022</h3>
-        </a>
-        <a href="45Apr2022.html" class="newsletter-item">
-            <h3>45 - April 2022</h3>
-        </a>
-        <a href="46May2022.html" class="newsletter-item">
-            <h3>46 - May 2022</h3>
-        </a>
-        <a href="47Jun2022.html" class="newsletter-item">
-            <h3>47 - June 2022</h3>
-        </a>
-        <a href="48Aug2022.html" class="newsletter-item">
-            <h3>48 - August 2022</h3>
-        </a>
-        <a href="49Aug2022.html" class="newsletter-item">
-            <h3>49 - August 2022</h3>
-        </a>
-        <a href="50Sept2022.html" class="newsletter-item">
-            <h3>50 - September 2022</h3>
-        </a>
-        <a href="51Oct2022.html" class="newsletter-item">
-            <h3>51 - October 2022</h3>
-        </a>
-        <a href="52Nov2022.html" class="newsletter-item">
-            <h3>52 - November 2022</h3>
-        </a>
-        <a href="53Dec2022.html" class="newsletter-item">
-            <h3>53 - December 2022</h3>
-        </a>
-        <a href="54Jan2023.html" class="newsletter-item">
-            <h3>54 - January 2023</h3>
-        </a>
-        <a href="55Feb2023.html" class="newsletter-item">
-            <h3>55 - February 2023</h3>
-        </a>
-        <a href="56Mar2023.html" class="newsletter-item">
-            <h3>56 - March 2023</h3>
-        </a>
-        <a href="57Apr2023.html" class="newsletter-item">
-            <h3>57 - April 2023</h3>
-        </a>
-        <a href="58May2023.html" class="newsletter-item">
-            <h3>58 - May 2023</h3>
-        </a>
-        <a href="59Jun2023.html" class="newsletter-item">
-            <h3>59 - June 2023</h3>
-        </a>
-        <a href="60Jun2023.html" class="newsletter-item">
-            <h3>60 - June 2023</h3>
-        </a>
-        <a href="61Jul2023.html" class="newsletter-item">
-            <h3>61 - July 2023</h3>
-        </a>
-        <a href="62Aug2023.html" class="newsletter-item">
-            <h3>62 - August 2023</h3>
-        </a>
-        <a href="63Sep2023.html" class="newsletter-item">
-            <h3>63 - September 2023</h3>
-        </a>
-        <a href="64Oct2023.html" class="newsletter-item">
-            <h3>64 - October 2023</h3>
-        </a>
-        <a href="65Nov2023.html" class="newsletter-item">
-            <h3>65 - November 2023</h3>
-        </a>
-        <a href="66Dec2023.html" class="newsletter-item">
-            <h3>66 - December 2023</h3>
-        </a>
-        <a href="67Jan2024.html" class="newsletter-item">
-            <h3>67 - January 2024</h3>
-        </a>
-        <a href="68Feb2024.html" class="newsletter-item">
-            <h3>68 - February 2024</h3>
-        </a>
-        <a href="69Mar2024.html" class="newsletter-item">
-            <h3>69 - March 2024</h3>
-        </a>
-        <a href="70Apr2024.html" class="newsletter-item">
-            <h3>70 - April 2024</h3>
-        </a>
-        <a href="71May2024.html" class="newsletter-item">
-            <h3>71 - May 2024</h3>
-        </a>
-        <a href="72Jun2024.html" class="newsletter-item">
-            <h3>72 - June 2024</h3>
-        </a>
-        <a href="73Jul2024.html" class="newsletter-item">
-            <h3>73 - July 2024</h3>
-        </a>
-        <a href="74Aug2024.html" class="newsletter-item">
-            <h3>74 - August 2024</h3>
-        </a>
-        <a href="75Sep2024.html" class="newsletter-item">
-            <h3>75 - September 2024</h3>
-        </a>
-        <a href="76Oct2024.html" class="newsletter-item">
-            <h3>76 - October 2024</h3>
-        </a>
-        <a href="77Nov2024.html" class="newsletter-item">
-            <h3>77 - November 2024</h3>
-        </a>
-        <a href="78Dec2024.html" class="newsletter-item">
-            <h3>78 - December 2024</h3>
-        </a>
-        <a href="79Jan2025.html" class="newsletter-item">
-            <h3>79 - January 2025</h3>
-        </a>
-        <a href="80Feb2025.html" class="newsletter-item">
-            <h3>80 - February 2025</h3>
-        </a>
-        <a href="81March2025.html" class="newsletter-item">
-            <h3>81 - March 2025</h3>
-        </a>
-        <a href="82April2025.html" class="newsletter-item">
-            <h3>82 - April 2025</h3>
-        </a>
-        <a href="83April2025_DevLive.html" class="newsletter-item">
-            <h3>83 - April 2025 DevLive</h3>
-        </a>
-        <a href="84May2025.html" class="newsletter-item">
-            <h3>84 - May 2025</h3>
-        </a>
-        <a href="85June2025_NPS.html" class="newsletter-item">
-            <h3>85 - June 2025 NPS</h3>
-        </a>
-        <a href="86June2025_DevLive.html" class="newsletter-item">
-            <h3>86 - June 2025 DevLive</h3>
-        </a>
-        <a href="87June2025_DevLive.html" class="newsletter-item">
-            <h3>87 - June 2025 DevLive</h3>
-        </a>
-        <a href="88July2025.html" class="newsletter-item">
-            <h3>88 - July 2025</h3>
-        </a>
-        <a href="89Sept2025.html" class="newsletter-item">
-            <h3>89 - September 2025</h3>
-        </a>
-        <a href="90Oct2025.html" class="newsletter-item">
-            <h3>90 - October 2025</h3>
-        </a>
-        <a href="91Nov2025.html" class="newsletter-item">
-            <h3>91 - November 2025</h3>
-        </a>
-        <a href="92NovNPS2025.html" class="newsletter-item">
-            <h3>92 - November NPS 2025</h3>
-        </a>
-        <a href="10March2025.html" class="newsletter-item">
-            <h3>10 - March 2025</h3>
-        </a>
-        <a href="EOL_Creative_SDK.html" class="newsletter-item">
-            <h3>EOL Creative SDK</h3>
-        </a>
+    <div class="container">
+        <header>
+            <h1>📬 Creative Cloud Developer Newsletter Archive</h1>
+            <p class="subtitle">Browse and search through all past editions</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="🔍 Search newsletter contents... (e.g., 'JavaScript', 'API', 'Adobe XD')"
+                >
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <div class="filter-controls">
+            <span class="filter-label">Filter by year:</span>
+            <button class="filter-button active" data-year="all">All Years</button>
+            <button class="filter-button" data-year="2025">2025</button>
+            <button class="filter-button" data-year="2024">2024</button>
+            <button class="filter-button" data-year="2023">2023</button>
+            <button class="filter-button" data-year="2022">2022</button>
+            <button class="filter-button" data-year="2021">2021</button>
+            <button class="filter-button" data-year="2020">2020</button>
+            <button class="filter-button" data-year="2019">2019</button>
+            <button class="filter-button" data-year="2018">2018</button>
+        </div>
+
+        <div class="newsletter-grid" id="newsletterGrid"></div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            No newsletters found matching your search.
+        </div>
+
+        <div class="loading" id="loading">
+            Loading newsletters...
+        </div>
     </div>
+
+    <script>
+        // Newsletter data
+        const newsletters = [
+            { file: '01July2018.html', number: 1, label: 'July 2018', date: 'July 2018', year: 2018 },
+            { file: '02Aug2018.html', number: 2, label: 'August 2018', date: 'Aug 2018', year: 2018 },
+            { file: '03Sep2018.html', number: 3, label: 'September 2018', date: 'Sep 2018', year: 2018 },
+            { file: '04Oct2018.html', number: 4, label: 'October 2018', date: 'Oct 2018', year: 2018 },
+            { file: '05Nov2018.html', number: 5, label: 'November 2018', date: 'Nov 2018', year: 2018 },
+            { file: '06Dec2018.html', number: 6, label: 'December 2018', date: 'Dec 2018', year: 2018 },
+            { file: '07Jan2019.html', number: 7, label: 'January 2019', date: 'Jan 2019', year: 2019 },
+            { file: '08Feb2019.html', number: 8, label: 'February 2019', date: 'Feb 2019', year: 2019 },
+            { file: '09Mar2019.html', number: 9, label: 'March 2019', date: 'Mar 2019', year: 2019 },
+            { file: '10Apr2019.html', number: 10, label: 'April 2019', date: 'Apr 2019', year: 2019 },
+            { file: '11may2019.html', number: 11, label: 'May 2019', date: 'May 2019', year: 2019 },
+            { file: '12Jun2019.html', number: 12, label: 'June 2019', date: 'Jun 2019', year: 2019 },
+            { file: '13Jul2019.html', number: 13, label: 'July 2019', date: 'Jul 2019', year: 2019 },
+            { file: '14Aug2019.html', number: 14, label: 'August 2019', date: 'Aug 2019', year: 2019 },
+            { file: '15Sep2019.html', number: 15, label: 'September 2019', date: 'Sep 2019', year: 2019 },
+            { file: '16Oct2019.html', number: 16, label: 'October 2019', date: 'Oct 2019', year: 2019 },
+            { file: '17Nov2019.html', number: 17, label: 'November 2019', date: 'Nov 2019', year: 2019 },
+            { file: '18Dec2019.html', number: 18, label: 'December 2019', date: 'Dec 2019', year: 2019 },
+            { file: '19Feb2020.html', number: 19, label: 'February 2020', date: 'Feb 2020', year: 2020 },
+            { file: '20Mar2020.html', number: 20, label: 'March 2020', date: 'Mar 2020', year: 2020 },
+            { file: '21May2020.html', number: 21, label: 'May 2020', date: 'May 2020', year: 2020 },
+            { file: '22June2020.html', number: 22, label: 'June 2020', date: 'Jun 2020', year: 2020 },
+            { file: '23June2020.html', number: 23, label: 'June 2020', date: 'Jun 2020', year: 2020 },
+            { file: '24Jul2020.html', number: 24, label: 'July 2020', date: 'Jul 2020', year: 2020 },
+            { file: '25Aug2020.html', number: 25, label: 'August 2020', date: 'Aug 2020', year: 2020 },
+            { file: '26Sep2020.html', number: 26, label: 'September 2020', date: 'Sep 2020', year: 2020 },
+            { file: '27Oct2020.html', number: 27, label: 'October 2020', date: 'Oct 2020', year: 2020 },
+            { file: '28Nov2020.html', number: 28, label: 'November 2020', date: 'Nov 2020', year: 2020 },
+            { file: '29Dec2020.html', number: 29, label: 'December 2020', date: 'Dec 2020', year: 2020 },
+            { file: '30Jan2021.html', number: 30, label: 'January 2021', date: 'Jan 2021', year: 2021 },
+            { file: '31Feb2021.html', number: 31, label: 'February 2021', date: 'Feb 2021', year: 2021 },
+            { file: '32Mar2021.html', number: 32, label: 'March 2021', date: 'Mar 2021', year: 2021 },
+            { file: '33Apr2021.html', number: 33, label: 'April 2021', date: 'Apr 2021', year: 2021 },
+            { file: '34Jun2021.html', number: 34, label: 'June 2021', date: 'Jun 2021', year: 2021 },
+            { file: '35jun2021.html', number: 35, label: 'June 2021', date: 'Jun 2021', year: 2021 },
+            { file: '36junsurvey2021.html', number: 36, label: 'June Survey 2021', date: 'Jun 2021', year: 2021 },
+            { file: '37Aug2021.html', number: 37, label: 'August 2021', date: 'Aug 2021', year: 2021 },
+            { file: '38Oct2021.html', number: 38, label: 'October 2021', date: 'Oct 2021', year: 2021 },
+            { file: '39Oct2021.html', number: 39, label: 'October 2021', date: 'Oct 2021', year: 2021 },
+            { file: '40Nov2021.html', number: 40, label: 'November 2021', date: 'Nov 2021', year: 2021 },
+            { file: '41DecNPS2021.html', number: 41, label: 'December NPS 2021', date: 'Dec 2021', year: 2021 },
+            { file: '42Dec2021.html', number: 42, label: 'December 2021', date: 'Dec 2021', year: 2021 },
+            { file: '43Jan2022.html', number: 43, label: 'January 2022', date: 'Jan 2022', year: 2022 },
+            { file: '44Mar2022.html', number: 44, label: 'March 2022', date: 'Mar 2022', year: 2022 },
+            { file: '45Apr2022.html', number: 45, label: 'April 2022', date: 'Apr 2022', year: 2022 },
+            { file: '46May2022.html', number: 46, label: 'May 2022', date: 'May 2022', year: 2022 },
+            { file: '47Jun2022.html', number: 47, label: 'June 2022', date: 'Jun 2022', year: 2022 },
+            { file: '48Aug2022.html', number: 48, label: 'August 2022', date: 'Aug 2022', year: 2022 },
+            { file: '49Aug2022.html', number: 49, label: 'August 2022', date: 'Aug 2022', year: 2022 },
+            { file: '50Sept2022.html', number: 50, label: 'September 2022', date: 'Sep 2022', year: 2022 },
+            { file: '51Oct2022.html', number: 51, label: 'October 2022', date: 'Oct 2022', year: 2022 },
+            { file: '52Nov2022.html', number: 52, label: 'November 2022', date: 'Nov 2022', year: 2022 },
+            { file: '53Dec2022.html', number: 53, label: 'December 2022', date: 'Dec 2022', year: 2022 },
+            { file: '54Jan2023.html', number: 54, label: 'January 2023', date: 'Jan 2023', year: 2023 },
+            { file: '55Feb2023.html', number: 55, label: 'February 2023', date: 'Feb 2023', year: 2023 },
+            { file: '56Mar2023.html', number: 56, label: 'March 2023', date: 'Mar 2023', year: 2023 },
+            { file: '57Apr2023.html', number: 57, label: 'April 2023', date: 'Apr 2023', year: 2023 },
+            { file: '58May2023.html', number: 58, label: 'May 2023', date: 'May 2023', year: 2023 },
+            { file: '59Jun2023.html', number: 59, label: 'June 2023', date: 'Jun 2023', year: 2023 },
+            { file: '60Jun2023.html', number: 60, label: 'June 2023', date: 'Jun 2023', year: 2023 },
+            { file: '61Jul2023.html', number: 61, label: 'July 2023', date: 'Jul 2023', year: 2023 },
+            { file: '62Aug2023.html', number: 62, label: 'August 2023', date: 'Aug 2023', year: 2023 },
+            { file: '63Sep2023.html', number: 63, label: 'September 2023', date: 'Sep 2023', year: 2023 },
+            { file: '64Oct2023.html', number: 64, label: 'October 2023', date: 'Oct 2023', year: 2023 },
+            { file: '65Nov2023.html', number: 65, label: 'November 2023', date: 'Nov 2023', year: 2023 },
+            { file: '66Dec2023.html', number: 66, label: 'December 2023', date: 'Dec 2023', year: 2023 },
+            { file: '67Jan2024.html', number: 67, label: 'January 2024', date: 'Jan 2024', year: 2024 },
+            { file: '68Feb2024.html', number: 68, label: 'February 2024', date: 'Feb 2024', year: 2024 },
+            { file: '69Mar2024.html', number: 69, label: 'March 2024', date: 'Mar 2024', year: 2024 },
+            { file: '70Apr2024.html', number: 70, label: 'April 2024', date: 'Apr 2024', year: 2024 },
+            { file: '71May2024.html', number: 71, label: 'May 2024', date: 'May 2024', year: 2024 },
+            { file: '72Jun2024.html', number: 72, label: 'June 2024', date: 'Jun 2024', year: 2024 },
+            { file: '73Jul2024.html', number: 73, label: 'July 2024', date: 'Jul 2024', year: 2024 },
+            { file: '74Aug2024.html', number: 74, label: 'August 2024', date: 'Aug 2024', year: 2024 },
+            { file: '75Sep2024.html', number: 75, label: 'September 2024', date: 'Sep 2024', year: 2024 },
+            { file: '76Oct2024.html', number: 76, label: 'October 2024', date: 'Oct 2024', year: 2024 },
+            { file: '77Nov2024.html', number: 77, label: 'November 2024', date: 'Nov 2024', year: 2024 },
+            { file: '78Dec2024.html', number: 78, label: 'December 2024', date: 'Dec 2024', year: 2024 },
+            { file: '79Jan2025.html', number: 79, label: 'January 2025', date: 'Jan 2025', year: 2025 },
+            { file: '80Feb2025.html', number: 80, label: 'February 2025', date: 'Feb 2025', year: 2025 },
+            { file: '81March2025.html', number: 81, label: 'March 2025', date: 'Mar 2025', year: 2025 },
+            { file: '82April2025.html', number: 82, label: 'April 2025', date: 'Apr 2025', year: 2025 },
+            { file: '83April2025_DevLive.html', number: 83, label: 'April 2025 DevLive', date: 'Apr 2025', year: 2025 },
+            { file: '84May2025.html', number: 84, label: 'May 2025', date: 'May 2025', year: 2025 },
+            { file: '85June2025_NPS.html', number: 85, label: 'June 2025 NPS', date: 'Jun 2025', year: 2025 },
+            { file: '86June2025_DevLive.html', number: 86, label: 'June 2025 DevLive', date: 'Jun 2025', year: 2025 },
+            { file: '87June2025_DevLive.html', number: 87, label: 'June 2025 DevLive', date: 'Jun 2025', year: 2025 },
+            { file: '88July2025.html', number: 88, label: 'July 2025', date: 'Jul 2025', year: 2025 },
+            { file: '89Sept2025.html', number: 89, label: 'September 2025', date: 'Sep 2025', year: 2025 },
+            { file: '90Oct2025.html', number: 90, label: 'October 2025', date: 'Oct 2025', year: 2025 },
+            { file: '91Nov2025.html', number: 91, label: 'November 2025', date: 'Nov 2025', year: 2025 },
+            { file: '92NovNPS2025.html', number: 92, label: 'November NPS 2025', date: 'Nov 2025', year: 2025 },
+            { file: '10March2025.html', number: 10, label: 'March 2025', date: 'Mar 2025', year: 2025 },
+            { file: 'EOL_Creative_SDK.html', number: null, label: 'EOL Creative SDK', date: 'Special', year: null }
+        ];
+
+        let newsletterContents = {};
+        let currentFilter = 'all';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', init);
+
+        async function init() {
+            await loadAllNewsletters();
+            renderNewletters();
+            setupEventListeners();
+        }
+
+        async function loadAllNewsletters() {
+            const loading = document.getElementById('loading');
+            
+            for (const newsletter of newsletters) {
+                try {
+                    const response = await fetch(newsletter.file);
+                    if (response.ok) {
+                        const text = await response.text();
+                        // Extract text content by removing HTML tags
+                        const div = document.createElement('div');
+                        div.innerHTML = text;
+                        const content = div.innerText || div.textContent || '';
+                        newsletterContents[newsletter.file] = content;
+                    }
+                } catch (error) {
+                    console.log(`Could not load ${newsletter.file}`);
+                }
+            }
+            
+            loading.style.display = 'none';
+        }
+
+        function renderNewletters(searchTerm = '', yearFilter = 'all') {
+            const grid = document.getElementById('newsletterGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+
+            let filtered = newsletters.filter(nl => {
+                const yearMatch = yearFilter === 'all' || nl.year === parseInt(yearFilter);
+                
+                if (!searchTerm) {
+                    return yearMatch;
+                }
+
+                const content = newsletterContents[nl.file] || '';
+                return yearMatch && content.toLowerCase().includes(searchTerm.toLowerCase());
+            });
+
+            if (filtered.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            filtered.forEach(newsletter => {
+                const card = document.createElement('div');
+                card.className = 'newsletter-card';
+                card.onclick = () => window.location.href = newsletter.file;
+
+                const numberDisplay = newsletter.number ? `#${newsletter.number}` : 'Special';
+                
+                card.innerHTML = `
+                    <div class="thumbnail">
+                        <div class="thumbnail-number">${numberDisplay}</div>
+                        <div class="thumbnail-content">📰</div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-label">${newsletter.label}</div>
+                        <div class="card-date">${newsletter.date}</div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-button');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value;
+                
+                if (searchTerm.length > 0) {
+                    showSearchResults(searchTerm);
+                } else {
+                    document.getElementById('searchResults').classList.remove('show');
+                    renderNewletters('', currentFilter);
+                }
+            });
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.year;
+                    
+                    const searchTerm = document.getElementById('searchInput').value;
+                    renderNewletters(searchTerm, currentFilter);
+                });
+            });
+        }
+
+        function showSearchResults(searchTerm) {
+            const searchResults = document.getElementById('searchResults');
+            const resultsContainer = document.getElementById('searchResults');
+            
+            const matches = [];
+            const lowerSearch = searchTerm.toLowerCase();
+
+            newsletters.forEach(newsletter => {
+                const content = newsletterContents[newsletter.file] || '';
+                
+                if (content.toLowerCase().includes(lowerSearch)) {
+                    // Find context around the match
+                    const index = content.toLowerCase().indexOf(lowerSearch);
+                    const start = Math.max(0, index - 50);
+                    const end = Math.min(content.length, index + searchTerm.length + 50);
+                    let preview = content.substring(start, end).trim();
+                    
+                    if (start > 0) preview = '...' + preview;
+                    if (end < content.length) preview = preview + '...';
+
+                    // Highlight the search term in preview
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
+                    preview = preview.replace(regex, '<span class="highlight">$1</span>');
+
+                    matches.push({
+                        ...newsletter,
+                        preview
+                    });
+                }
+            });
+
+            resultsContainer.innerHTML = '';
+            
+            if (matches.length > 0) {
+                const title = document.createElement('div');
+                title.style.cssText = 'padding: 15px; font-weight: bold; color: #0066cc;';
+                title.textContent = `Found in ${matches.length} newsletter${matches.length !== 1 ? 's' : ''}`;
+                resultsContainer.appendChild(title);
+
+                matches.forEach(match => {
+                    const result = document.createElement('div');
+                    result.className = 'search-result-item';
+                    result.onclick = () => window.location.href = match.file;
+                    result.innerHTML = `
+                        <div class="search-result-title">${match.label} (#${match.number || 'Special'})</div>
+                        <div class="search-result-preview">${match.preview}</div>
+                    `;
+                    resultsContainer.appendChild(result);
+                });
+
+                resultsContainer.classList.add('show');
+            } else {
+                const noMatch = document.createElement('div');
+                noMatch.style.cssText = 'padding: 20px; text-align: center; color: #888;';
+                noMatch.textContent = 'No results found for: ' + searchTerm;
+                resultsContainer.appendChild(noMatch);
+                resultsContainer.classList.add('show');
+            }
+        }
+    </script>
 </body>
 </html>
