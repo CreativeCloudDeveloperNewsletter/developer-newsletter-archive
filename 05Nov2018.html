@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Creative Cloud Developer Newsletter</title>
+    <!--[if mso]>
+      <style type="text/css">
+        body,
+        table,
+        td,
+        .mobile-text {
+          font-family: Arial, Helvetica, sans-serif !important;
+        }
+      </style>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG /> <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+    <style type="text/css">
+        @import url("https://use.typekit.net/onr8tbr.css");
+
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        a,
+        a:visited {
+            color: #1473e6;
+        }
+
+        /* iOS BLUE LINKS */
+
+        .stay a,
+        a[x-apple-data-detectors] {
+            color: #1473e6;
+            text-decoration: underline;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        .mobile {
+            border-spacing: 0;
+            display: none !important;
+            height: 0;
+            max-height: 0;
+            mso-hide: all;
+            overflow: hidden;
+            visibility: hidden;
+            width: 0;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .web {
+                display: none !important;
+            }
+
+            .mobile {
+                display: block !important;
+                width: auto !important;
+                overflow: visible !important;
+                height: auto !important;
+                max-height: inherit !important;
+                font-size: 14px !important;
+                line-height: 20px !important;
+                visibility: visible !important;
+            }
+
+            /*.mobile.inline {
+            display: inline !important;
+            }*/
+            .email-width {
+                width: 90% !important;
+            }
+
+            .full-width {
+                width: 100% !important;
+            }
+
+            .content-width {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .footer-content {
+                clear: both !important;
+                display: block !important;
+                width: auto !important;
+            }
+
+            .mobile-spacer {
+                width: 18px !important;
+            }
+
+            .mobile-image {
+                display: inline-block !important;
+                height: auto !important;
+                max-height: inherit !important;
+                overflow: visible !important;
+                visibility: visible !important;
+                width: 100% !important;
+            }
+
+            .button {
+                background-color: #1473e6 !important;
+                border-radius: 16px !important;
+                color: #ffffff !important;
+                display: inline-block !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                text-decoration: none !important;
+                -webkit-text-size-adjust: none !important;
+                font-size: 14px !important;
+                line-height: 20px !important;
+                width: 100% !important;
+                margin-top: 12px !important;
+                padding-top: 7px !important;
+                padding-bottom: 7px !important;
+                margin-bottom: 24px;
+            }
+
+            .first .button {
+                margin-bottom: 0 !important;
+            }
+
+            /*.second .button {
+            margin-top: 0 !important;
+            }*/
+            .header {
+                font-size: 14px !important;
+                line-height: 22px !important;
+            }
+
+            .headline {
+                font-size: 14px !important;
+                line-height: 28px !important;
+            }
+
+            .mobile-text {
+                font-size: 14px !important;
+                line-height: 21px !important;
+            }
+
+            .txt-lg {
+                font-size: 14px !important;
+                line-height: 21px !important;
+            }
+
+            .webinars .button {
+                margin-bottom: 12px !important;
+            }
+
+            .txt-ctr {
+                text-align: center !important;
+            }
+
+            .social {
+                height: 28px !important;
+                width: 28px !important;
+            }
+
+            .social-spacer {
+                width: 15px !important;
+            }
+
+            .icon-cell {
+                padding-top: 29px !important;
+                padding-bottom: 0px !important;
+            }
+
+            .spacer {
+                background-color: #f0f0f0 !important;
+                padding-top: 20px !important;
+            }
+        }
+
+        /*p {color:#f0f}*/
+    </style>
+    <style acrite-template-css="true">
+        /*************************************************************************
+              * These CSS properties are relative to the template.
+              * ! You can break the rendering by changing rules here !
+              **************************************************************************/
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+        }
+
+        td {
+            padding: 0;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .fragment,
+        .component {
+            padding: 0;
+        }
+
+        .divider-container {
+            padding: 5px 0;
+            font-size: 0px;
+        }
+
+        .text-container p {
+            margin: 0;
+        }
+
+        .image-container {
+            line-height: 0;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Styles for structures */
+        .structure {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+
+        .structure__table {
+            table-layout: fixed;
+            margin: 0 auto;
+            border-spacing: 0;
+            background-size: auto;
+            background-repeat: no-repeat;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        .colspan1,
+        .colspan2,
+        .colspan3,
+        .colspan4,
+        .colspan33,
+        .colspan66 {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+
+        .colspan1 {
+            width: 100%;
+        }
+
+        .colspan2 {
+            width: 50%;
+        }
+
+        .colspan3 {
+            width: 75%;
+        }
+
+        .colspan4 {
+            width: 25%;
+        }
+
+        .colspan33 {
+            width: 33%;
+        }
+
+        .colspan66 {
+            width: 66%;
+        }
+
+        /* Styles for component */
+        .component-social-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Styles for component carousel */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            [data-component-id="carousel"] .fallback {
+                display: none;
+                display: none !important;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            [data-component-id="carousel"] .interactive {
+                display: block !important;
+                max-height: none !important;
+            }
+        }
+
+        [data-component-id="carousel"] .dock {
+            display: flex;
+            width: 100%;
+            position: relative;
+            left: 0;
+        }
+
+        [data-component-id="carousel"] .dock .thumbnailContainer {
+            display: flex;
+            flex: 1 0;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        [data-component-id="carousel"] .thumbnail {
+            height: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        [data-component-id="carousel"] .thumbnail.not-empty::before {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        [data-component-id="carousel"] .thumbnail img {
+            width: calc(100% - 4px) !important;
+            border: 2px solid rgb(234, 234, 234);
+            transition: 0.5s border-color;
+        }
+
+        [data-component-id="carousel"] .thumbnailLabel {
+            width: 100%;
+        }
+
+        [data-component-id="carousel"] .thumbnail:hover img {
+            border-color: #1473e6;
+        }
+
+        [data-component-id="carousel"] .thumbnail .component-image-container {
+            border: 1px dashed rgb(234, 234, 234);
+        }
+
+        span.preheader {
+            display: none !important;
+        }
+
+        /* Table media queries */
+        @media screen and (max-width: 500px) {
+            body {
+                width: 100% !important;
+                min-width: 0px !important;
+            }
+
+            .structure__table {
+                width: 100%;
+            }
+
+            th {
+                display: block !important;
+                width: auto !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .container-small-size th {
+                display: table-cell !important;
+                width: 100% !important;
+            }
+        }
+
+        /* MSO OVERRIDE */
+        .ExternalClass {
+            width: 100%;
+        }
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: block;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 19px 0 19px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 20px 0 20px 0;
+        }
+
+        h3 {
+            font-size: 19px;
+            margin: 19px 0 19px 0;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin: 21px 0 21px 0;
+        }
+
+        h5 {
+            font-size: 13px;
+            margin: 22px 0 22px 0;
+        }
+
+        h6 {
+            font-size: 11px;
+            margin: 25px 0 25px 0;
+        }
+    </style>
+</head>
+
+<body bgcolor="#f0f0f0" style="background-color: rgb(240, 240, 240); margin: 0px; padding: 0px; -webkit-font-smoothing: antialiased; min-width: 750px; font-weight: 100; width: 1144px; position: static; height: 2529px; left: 0px; top: 0px; border: 0px none rgb(0, 0, 0); background-position: left top; background-repeat: repeat repeat;"
+    topmargin="0" class="is-html-mode" data-contenteditable="true">
+    <div style="font-size: 1px; color: #f0f0f0; display: none; overflow: hidden; visibility: hidden;">Creative Cloud
+        Developer Newsletter</div>
+    <table width="100%" bgcolor="#f0f0f0" style="background-color: #f0f0f0;" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+            <!-- spacer table -->
+        </tbody>
+        <tbody>
+            <tr></tr>
+        </tbody>
+        <!-- END spacer table -->
+        <!-- Think Tank marquee -->
+        <!-- <tbody></tbody> -->
+        <!-- END Think Tank marquee -->
+        <tbody>
+            <tr>
+                <td>
+                    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#f0f0f0" style="background-color: #f0f0f0; width: 600px;">
+                        <tbody>
+                            <tr>
+                                <td class="mobile-spacer" width="20" style="width: 20px; background-color: #f0f0f0; background-position: left top; background-repeat: repeat repeat;"></td>
+                                <td><span class="nl-dce-fragment nl-dce-done" id="span153840876987189" data-nl-name="MirrorPage"
+                                        data-nl-label="Link to mirror page (MirrorPage)" data-contenteditable="false">Link
+                                        to mirror page</span></td>
+                            </tr>
+                            <tr>
+                                <!-- - mobile spacer needed - -->
+                                <td class="mobile-spacer" width="20" style="width: 20px; background-color: #ffffff; background-position: left top; background-repeat: repeat repeat;"></td>
+                                <td class="txt-lg" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-top: 12px; background-color: #ffffff; background-position: left top; background-repeat: repeat repeat;"
+                                    data-nl-format="datetime">November, 2018</td>
+                                <td style="color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; background-color: #ffffff; background-position: left top; background-repeat: repeat repeat;"
+                                    width="39" valign="top" align="right"><img class="logo" style="background-color: #ff0000; display: inline-block; vertical-align: top;"
+                                        alt="Adobe" src="http://landing.adobe.com/dam/global/images/adobe-logo.red-tag.78x128.png"
+                                        width="39" vspace="0" border="0" hspace="0" height="64" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td data-nl-format="datetime">
+                    <!-- spacer table -->
+                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                            <tr>
+                                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END spacer table -->
+                    <!-- Think Tank marquee -->
+                    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#ffffff" style="background-color: #ffffff; width: 600px;">
+                        <tbody>
+                            <tr>
+                                <td style="color: #333333; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1px;"
+                                    class="nl-dce-multiconditional nl-dce-if nl-dce-variant nl-dce-variant-block nl-dce-current-variant"
+                                    data-nl-condition-type="multiple" data-nl-variant-group="153436752252576"
+                                    data-nl-variant-label="" data-nl-expr="" data-nl-variant-index="1"></td>
+                                <td style="color: #333333; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1px;"
+                                    class="nl-dce-multiconditional nl-dce-if nl-dce-variant nl-dce-variant-block"
+                                    data-nl-condition-type="multiple" data-nl-variant-group="153436752252576"
+                                    data-nl-variant-default="true" data-nl-variant-label="Default" data-nl-expr=""
+                                    data-nl-variant-index="0"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END Think Tank marquee -->
+                    <!-- BEGIN email content -->
+                    <!-- masthead -->
+                    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#ffffff" style="background-color: #ffffff; width: 600px;">
+                        <tbody>
+                            <tr>
+                                <td style="color: #333333; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1px;"><img
+                                        class="mobile-image" alt="Creative Cloud Developer Newsletter" src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/dff6b62ded8390cdc8d50327adf895de.png"
+                                        sizes="(max-width: 480px) 50vw" width="600" height="164" border="0" style="color: #333333; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 24px; display: block;" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END masthead -->
+                    <!-- Think Tank marquee -->
+                    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#ffffff" style="background-color: #ffffff; width: 600px;">
+                        <tbody>
+                            <tr>
+                                <td style="color: #333333; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END Think Tank marquee -->
+                    <!-- pod 2 -->
+                    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#ffffff" style="background-color: #ffffff; width: 600px;">
+                        <tbody>
+                            <tr>
+                                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                                <td class="mobile-text stay" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; padding-bottom: 3px;">
+                                    <div data-nl-format="datetime"><br /> Hello! <br /> <br /> Welcome to the November
+                                        issue of our Creative Cloud Developer newsletter.<br /><br /></div>
+                                </td>
+                                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                            </tr>
+                            <tr>
+                                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                                <!--
+                    <td class="mobile-spacer" width="20" style="width: 20px;"> </td>
+                  -->
+                            </tr>
+                        </tbody>
+                        <!-- END pod1 -->
+                        <tbody></tbody>
+                        <!-- END spacer table -->
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END right pic item -->
+    <!-- spacer table -->
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                <td data-nl-format="datetime"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END spacer table -->
+    <!-- item -->
+    <!-- END item -->
+    <!-- spacer table -->
+    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+        style="background-color: #ffffff; width: 600px;">
+        <tbody>
+            <tr>
+                <!--
+            <td class="mobile-spacer" width="20" style="width: 20px;"> </td>
+          -->
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #333333; font-family: adobe-clean, Helvetica Neue Light, Helvetica Light, Helvetica, Verdana, Arial, sans-serif; font-size: 20px; font-weight: 100; line-height: 29px; padding-top: 15px; padding-bottom: 3px;">XD
+                    plugin API news</td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="mobile-text" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px;">
+                    <div class="fragment component image-container" data-component-id="image" style="width: 100%; text-align: center;"
+                        data-component-name="richtext.component_image" data-thumbnail="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/8f54224e60e1c90ebadc088dabb219d24c0662c3cb43dfa3da534f0ff32d69ad.png"
+                        data-contenteditable="false">
+                        <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="text-align: left;"><![endif]-->
+                        <!-- <img src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/8f54224e60e1c90ebadc088dabb219d24c0662c3cb43dfa3da534f0ff32d69ad.png" -->
+                        <!-- width="750" style="width: 100%;" title="" alt="" /> -->
+                        <!--[if mso]></td></tr></table><![endif]-->
+                    </div>
+                    <div>
+                        <p data-nl-format="datetime">Last month the XD plugin API launched with a bang. The ecosystem
+                            continues to grow with new plugins being added to the XD plugin manager almost daily.</p>
+                        We've got plenty of updates on the blog for you:
+                        <ul>
+                            <li data-nl-format="datetime">Read our <a href="#" id="a154264791270557" data-nl-type="externalLink"
+                                    data-nl-lnkep-perso-attr-href="https://medium.com/adobetech/re-cap-adobe-xd-plugin-apis-at-max-2018-19f33bde8ff">MAX
+                                    2018 re-cap</a></li>
+                            <li>See photos from the <a href="#" id="a154264792797133" data-nl-type="externalLink"
+                                    data-nl-lnkep-perso-attr-href="https://medium.com/adobetech/design-tools-tlv-18-hackathon-retrospective-ac13846c700d">Design
+                                    Tools Hackathon in Tel Aviv</a></li>
+                            <li>Get a <a href="#" id="a154264795350827" data-nl-type="externalLink"
+                                    data-nl-lnkep-perso-attr-href="https://medium.com/adobetech/building-a-party-plugin-inside-adobe-xd-introducing-confetti-b8476547f2cd">behind-the-scenes
+                                    look at Confetti</a> from Yummygum</li>
+                        </ul>
+                        Start building your Adobe XD plugin today at <a href="#" id="a15426479780305" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="http://adobexdplatform.com/">AdobeXDPlatform.com</a>.
+                    </div>
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="txt-ctr" style="color: #1473e6; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px; position: static; width: 560px; height: 20px; left: 0px; top: 0px; border: 0px none #1473e6;"
+                    data-nl-format="datetime"></td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+        </tbody>
+        <!-- END pod1 -->
+        <tbody></tbody>
+        <!-- END spacer table -->
+    </table>
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                <td data-nl-format="datetime"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END item -->
+    <!-- spacer table -->
+    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+        style="background-color: #ffffff; width: 600px;">
+        <tbody>
+            <tr>
+                <!--
+            <td class="mobile-spacer" width="20" style="width: 20px;"> </td>
+          -->
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #333333; font-family: adobe-clean, Helvetica Neue Light, Helvetica Light, Helvetica, Verdana, Arial, sans-serif; font-size: 20px; font-weight: 100; line-height: 29px; padding-top: 15px; padding-bottom: 3px;">Find
+                    out what's new in Premiere Pro APIs</td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="mobile-text" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px;">
+                    <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="text-align: center;"><![endif]-->
+                    <!--
+              <img src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/8f54224e60e1c90ebadc088dabb219d24c0662c3cb43dfa3da534f0ff32d69ad.png"
+                 width="750" style="width: 100%;" title="" alt="" />
+            -->
+                    <!--[if mso]></td></tr></table><![endif]-->
+                    <div>
+                        <p>On the Adobe Tech Blog, <a href="#" id="a154264800025235" data-nl-type="externalLink"
+                                data-nl-lnkep-perso-attr-href="https://medium.com/adobetech/whats-new-in-the-premiere-pro-13-api-16c8b5d90bb">Bruce
+                                Bullis shares seven new features</a> in the latest release of the Adobe Premiere Pro
+                            API.</p>
+                        <p>Get caught up with the latest in Premiere Pro extensibility.</p>
+                    </div>
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="txt-ctr" style="color: #1473e6; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px; position: static; width: 560px; height: 20px; left: 0px; top: 0px; border: 0px none #1473e6;"
+                    data-nl-format="datetime"></td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+        </tbody>
+        <!-- END pod1 -->
+        <tbody></tbody>
+        <!-- END spacer table -->
+    </table>
+    <!-- END right pic item -->
+    <!-- END spacer table -->
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                <td data-nl-format="datetime"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END item -->
+    <!-- spacer table -->
+    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+        style="background-color: #ffffff; width: 600px;">
+        <tbody>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"> </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #333333; font-family: adobe-clean, Helvetica Neue Light, Helvetica Light, Helvetica, Verdana, Arial, sans-serif; font-size: 20px; font-weight: 100; line-height: 29px; padding-top: 15px; padding-bottom: 3px;">ExtendScript
+                    Toolkit Debugger Error #1116</td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="mobile-text" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px;">
+                    <div class="fragment component image-container" data-component-id="image" style="width: 100%; text-align: left;"
+                        data-component-name="richtext.component_image" data-thumbnail="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/92f3a15a18ffde653b906008a49019012d40a68a399e36c58842d5bb782765ca.png"
+                        contenteditable="false">
+                        <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="text-align: left;"><![endif]-->
+                        <img src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/92f3a15a18ffde653b906008a49019012d40a68a399e36c58842d5bb782765ca.png"
+                            width="751" style="width: 100%;" />
+                        <!--[if mso]></td></tr></table><![endif]-->
+                    </div>
+                    <div>
+                        <p data-nl-format="datetime">Starting on November 20th, 2018, Mac users started seeing this
+                            ExtendScript Toolkit error:</p>
+                        <blockquote><em>Cannot execute script in target engine 'main'! (#1116) Can't start debug
+                                session.</em></blockquote>
+                        <p data-nl-format="datetime">We were able to come up with the following fix:</p>
+                        <ol data-nl-format="datetime">
+                            <li>Open this file: “/Applications/Adobe ExtendScript Toolkit CC/ExtendScript
+                                Toolkit.app/Contents/SharedSupport/Required/cdic/11BTBackend.jsx”<br /><br /></li>
+                            <li>Search for the value 604800000 (line reads bt.timeout = 604800000)<br /><br /></li>
+                            <li>Replace that value with 604800, and save<br /><br /></li>
+                            <li>Quit ExtendScript Toolkit and relaunch</li>
+                        </ol>
+                        <p data-nl-format="datetime">We will continue to post updates on the situation in <a href="#"
+                                id="a154282510064345" data-nl-type="externalLink" data-nl-lnkep-perso-attr-href="https://forums.adobe.com/message/10764559#10764559">this
+                                forum thread</a>, and on <a href="#" id="a154282508141032" data-nl-type="externalLink"
+                                data-nl-lnkep-perso-attr-href="https://medium.com/adobetech/extendscript-toolkit-debugger-error-1116-67cce4d47af7">the
+                                blog</a>.</p>
+                    </div>
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="txt-ctr" style="color: #1473e6; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px; position: static; width: 560px; height: 20px; left: 0px; top: 0px; border: 0px none #1473e6;"
+                    data-nl-format="datetime"></td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+        </tbody>
+        <!-- END pod1 -->
+        <tbody></tbody>
+        <!-- END spacer table -->
+    </table>
+    <!-- spacer table -->
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                <td data-nl-format="datetime"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END spacer table -->
+    <!-- spacer table -->
+    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+        style="background-color: #ffffff; width: 600px;">
+        <tbody>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="txt-lg" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px;"></td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #333333; font-family: adobe-clean, 'Helvetica Neue Light', 'Helvetica Light', Helvetica, Verdana, Arial, sans-serif; font-size: 10px; font-weight: 100; line-height: 3px; padding-bottom: 0px;">
+                    <!--
+              <img src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/ef961c22390af4e0765409666daceff1ca7a51729d36ecfb0beb271be17e3c71.png"
+                 style="width: 550px;" title="" alt="" /></td>
+            -->
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #333333; font-family: adobe-clean, Helvetica Neue Light, Helvetica Light, Helvetica, Verdana, Arial, sans-serif; font-size: 20px; font-weight: 100; line-height: 29px;">
+                    <div style="padding-bottom: 10px; padding-top: 10px;" data-nl-format="datetime">New integrations
+                        for collaboration tools you use</div>
+                    <div class="fragment component image-container" data-component-id="image" style="width: 100%; text-align: left;"
+                        data-component-name="richtext.component_image" data-thumbnail="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/1ec5bd865386da04ab67b89bb084b48ea389992e53319de6eaf0792aa67d4ba7.png"
+                        contenteditable="false">
+                        <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="text-align: left;"><![endif]-->
+                        <a id="a154283495789741" href="#" data-nl-lnkep-perso-attr-href="https://www.youtube.com/watch?v=P2X4BHEbdBw"
+                            data-nl-type="externalLink"><img src="http://adobeint-mkt-prod1-res.campaign.adobe.com/res/adobeint_mkt_prod1/1ec5bd865386da04ab67b89bb084b48ea389992e53319de6eaf0792aa67d4ba7.png"
+                                width="751" style="width: 100%; border: 0px none #1473e6;" data-nl-associated-link="a154283495789741" /></a>
+                        <!--[if mso]></td></tr></table><![endif]-->
+                    </div>
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="align: left; color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; padding-bottom: 3px; padding-left: 0px; padding-right: 0px;"
+                    data-nl-format="datetime">
+                    <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="padding-bottom: 0px; padding-left: 0px; padding-right: 0px; text-align: left;"><![endif]-->
+                    <p><br />We’ve launched Creative Cloud and XD specific integrations with leading collaboration and
+                        productivity tools including <a href="#" id="a154264802411379" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://appsource.microsoft.com/en-us/product/office/WA104381222?tab=Overview">Microsoft
+                            Teams</a>, <a href="#" id="a154264804204017" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://omnigrouphq.slack.com/apps/A7P35MCT0-adobe-creative-cloud">Slack</a>,
+                        <a href="#" id="a154264806495195" data-nl-type="externalLink" data-nl-lnkep-perso-attr-href="https://theblog.adobe.com/adobe-xd-integration-with-dropbox-paper/">Dropbox
+                            Paper</a> and <a href="#" id="a154264809130368" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://marketplace.atlassian.com/apps/1219582/adobe-xd-for-jira?hosting=cloud&amp;tab=overview">Jira
+                            Software Cloud</a>. If you’d like to check out the XD integration for Jira Software Cloud,
+                        you can <a href="#" id="a154274622361084" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://www.adobe.com/products/xd.html?gclid=CjwKCAiAz7TfBRAKEiwAz8fKOLYCpSvcn0MFUlS60lbH1rANKx88vmZieJ58LpQiXZ4JtYnKBCWJOhoCz2oQAvD_BwE&amp;sdid=12B9F15S&amp;mv=search&amp;ef_id=CjwKCAiAz7TfBRAKEiwAz8fKOLYCpSvcn0MFUlS60lbH1rANKx88vmZieJ58LpQiXZ4JtYnKBCWJOhoCz2oQAvD_BwE:G:s&amp;s_kwcid=AL!3085!3!269218643514!b!!g!!adobe%20xd%20free">try
+                            XD</a> and <a href="#" id="a154274624530432" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://www.atlassian.com/software/jira/whats-new/adobe">Jira
+                            Software Cloud</a> for free.</p>
+                    <!-- - Break between blocks begin Erin Notes -->
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td class="txt-ctr" style="color: #1473e6; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 2px; position: static; width: 560px; height: 20px; left: 0px; top: 0px; border: 0px none #1473e6;"
+                    data-nl-format="datetime">
+                    <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="padding-bottom: 2px;"><![endif]-->
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+        </tbody>
+        <!-- END pod1 -->
+        <tbody></tbody>
+        <!-- END spacer table -->
+    </table>
+    <!-- END right pic item -->
+    <!-- spacer table -->
+    <!-- END spacer table -->
+    <!-- spacer table -->
+    <!-- - Break between blocks begin Erin Notes -->
+    <!-- END right pic item -->
+    <!-- spacer table -->
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+            <tr>
+                <td height="20" bgcolor="#f0f0f0" style="background-color: #f0f0f0; font-size: 0px; line-height: 0px;"></td>
+                <td data-nl-format="datetime"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END spacer table -->
+    <!-- spacer table -->
+    <table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"
+        style="background-color: #ffffff; width: 600px;">
+        <tbody>
+            <tr>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+                <td style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 18px; padding-bottom: 26px; padding-top: 16px; height: 66px;"
+                    data-nl-format="datetime">
+                    <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="height: 66px;"><![endif]-->
+                    <div></div>
+                    <p data-nl-format="datetime" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px; height: 21px;">
+                        <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="height: 21px; font-size: 14;"><!
+              [endif]-->Did
+                        you miss the last newsletter? You can <a href="#" id="a154274615571597" data-nl-type="externalLink"
+                            data-nl-lnkep-perso-attr-href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fadobeint-mkt-prod1-t.campaign.adobe.com%2Fr%2F%3Fid%3Dh1fdf289%2Cccfaeeb%2Cceb16a6%26p1%3D%40UAAlAtOpSK_YDMqvDbp6Eyiy8iTYP9MgkBextSKEoIX-URSkxjkgIMlp38Ni5g5lZG7bK7IUaDO3_GQNUrK-7iFAAb1GMrexyw6IgdwQ27GnZXBx&amp;data=02%7C01%7Cfinnegan%40adobe.com%7C24b50be980ae4cdaf81a08d6386c1aea%7Cfa7b1b5a7b34438794aed2c178decee1%7C0%7C0%7C636758434515210853&amp;sdata=Krc8yU0cQ1tr6mqj6YX9V%2BwBJwA9cFdTI73TKpbBVRA%3D&amp;reserved=0">read
+                            it online here</a>.<br /><br /></p>
+                    <p data-nl-format="datetime" style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; padding-bottom: 3px; height: 21px;">Thank
+                        you!</p>
+                    <em> The Creative Cloud Developer Ecosystem Team </em>
+                    <!--[if mso]></td></tr></table><![endif]-->
+                </td>
+                <td class="mobile-spacer" width="20" style="width: 20px;"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END spacer table -->
+    <!-- right pic item -->
+    <!-- END right pic item -->
+    <!-- spacer table -->
+    <!-- END events -->
+    <!-- spacer table -->
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody></tbody>
+    </table>
+    <!-- END spacer table -->
+    <!-- side_by_side item -->
+    <!-- campaign & social -->
+    <table class="email-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#f0f0f0"
+        style="background-color: #f0f0f0; width: 600px;">
+        <tbody>
+            <tr>
+                <td>
+                    <!-- campaign -->
+                    <table class="footer-content" align="left" width="140" border="0" cellpadding="0" cellspacing="0"
+                        bgcolor="#f0f0f0" style="background-color: #f0f0f0; width: 140px;">
+                        <tbody>
+                            <tr>
+                                <td style="color: #666666; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 12px; padding-top: 20px;"><img
+                                        alt="Enabled by Adobe Campaign" src="http://landing.adobe.com/dam/global/images/enabled-by-adobe-campaign.light.280x60.png"
+                                        width="140" height="30" border="0" style="display: block;" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END campaign -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END campaign & social -->
+    <table class="email-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#f0f0f0"
+        style="background-color: #f0f0f0; width: 600px;">
+        <tbody>
+            <tr>
+                <td align="left" style="color: #a1a1a1; font-family: adobe-clean, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 14px; padding-top: 40px; padding-bottom: 40px; text-align: left;"
+                    data-nl-format="datetime">Adobe, the Adobe logo, and Creative Cloud are either registered
+                    trademarks or trademarks of Adobe  Incorporated in the United States and/or other countries. All
+                    other trademarks are the property of their respective owners. <br /> <br /> This is a marketing
+                    email from <span class="stay">Adobe, Inc., 345 Park Avenue, San Jose, CA 95110 USA.</span> <span
+                        class="nl-dce-fragment nl-dce-done" id="span152850830787264" data-nl-name="adbeServiceComUnsubscriptionLink"
+                        data-nl-label="undefined (undefined)" data-contenteditable="false">Adobe service communications
+                        unsubscription link</span> to unsubscribe. Please review the <a href="https://www.adobe.com/privacy.html"
+                        alias="FOOTER - Privacy Policy" target="_blank" style="color: #1473e6;" data-id="al1539367411576531b29">Adobe Privacy Policy</a>
+                    . <br /> <br /> To ensure email delivery, add <a href="https://landing.adobe.com/dam/downloads/vcards/adobe.vcf"
+                        alias="Add to address book - mail@info.adobesystems.com" target="_blank" style="color: #1473e6;"
+                        data-id="al1539367411576930c2b">mail@info.adobesystems.com</a> to your address book, contacts,
+                    or safe sender list.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

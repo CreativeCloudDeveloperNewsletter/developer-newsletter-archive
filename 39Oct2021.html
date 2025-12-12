@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<link rel="icon" href="https://www.adobe.com/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.adobe.com/favicon.ico" type="image/x-icon">
+<meta name="x-apple-disable-message-reformatting">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="date=no">
+<meta name="format-detection" content="address=no">
+<meta name="format-detection" content="email=no">
+<title>Adobe Creative Cloud Developer Newsletter</title>
+
+<!--[if mso]>
+<style type="text/css">
+body, table, td {
+font-family:Helvetica Neue, Helvetica, Verdana, Arial, sans-serif !important;
+}
+</style>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+
+<style type="text/css">
+@import url("https://use.typekit.net/onr8tbr.css");
+/* @media (prefers-color-scheme: dark) */
+.ReadMsgBody {width:100%;}
+.ExternalClass {width:100%;}
+table {border-collapse:collapse; margin:0 auto;}
+a, a:visited {color:#1473E6; text-decoration:none;}
+.legal a {text-decoration:underline;}
+/* iOS BLUE LINKS */
+a[x-apple-data-detectors] {color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;}
+
+.mobile {border-spacing:0;display:none!important;height:0;max-height:0;mso-hide:all;overflow:hidden;visibility:hidden;width:0;}
+	
+	@media only screen and (max-width:480px) {
+		u ~ div {
+			min-width:100vw;
+		}
+		div > u ~ div {
+        	min-width: 100%;
+		}
+		.web {
+			 display:none !important;
+	     }
+		 
+		 .mobile {
+			 display:block !important;
+			 width:auto !important;
+			 overflow:visible !important;
+			 height:auto !important;
+			 max-height:inherit !important;
+			 font-size:15px !important;
+			 line-height:21px !important;
+			 visibility:visible !important;
+	     }
+		 
+		 .email-width {
+			 width:84% !important;
+	     }
+		 
+		 .full-width {
+			 width:100% !important;
+	     }
+		 
+		 .mobile-image {
+			 height:auto !important;
+			 width:100% !important;
+	     }
+		
+		.social {
+			float:left !important;
+			padding-top:66px !important;
+			text-align:left !important;
+		}
+		
+		.header {
+			font-size:28px !important;
+			line-height:32px !important;
+		}
+	}
+</style>
+</head>
+
+<body bgcolor="#E4E4E4" style="background-color:#E4E4E4; margin:0; padding:0;-webkit-font-smoothing:antialiased;width:100% !important;-webkit-text-size-adjust:none;" topmargin="0" class="">
+<div style="font-size: 1px; color: #e4e4e4; display: none; overflow: hidden; visibility: hidden;">Reply to finnegan@adobe.com  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌  ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ </div>
+<table width="100%" bgcolor="#E4E4E4" style="background-color: #e4e4e4;" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tbody>
+<tr>
+<td>
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+<tbody>
+<tr>
+<td bgcolor="#ffffff" style="background-color: #ffffff; padding-bottom: 66px;"><!-- header -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 50px; padding-bottom: 50px;">
+<table align="left" width="auto" border="0" cellpadding="0" cellspacing="0" role="presentation">
+<tbody>
+<tr>
+<td valign="middle" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 14px; line-height: 20px;"><img alt="Creative Cloud icon" src="https://landing.adobe.com/dam/global/images/creative-cloud.icon.240x234.png" width="30" height="auto" border="0" hspace="0" vspace="0" style="display: block; vertical-align: top;" /></td>
+<td width="10" style="width: 10px;"> </td>
+<td valign="top" style="color: #fa0f00; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 14px; line-height: 20px;"><img alt="Adobe Creative Cloud" src="https://s7d9.scene7.com/is/image/AdobeDemandCreative/?fmt=png-alpha&amp;size=400,60&amp;wid=400&amp;textAttr=144,strong&amp;resolution=200&amp;textPs=%7B%5C*%5Ciscolortbl%3BFA0F00%3B%5Cfonttbl%7B%5Cf0%20Adobe%20Clean%20ExtraBold%3B%7D%7D%5Cf0%5Cfs40%5Csl-400%5Cvertalc%5Ckerningoptical%5Ccf1Adobe%20Creative%20Cloud" width="200" height="30" border="0" hspace="0" vspace="0" style="color: #fa0f00; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 14px; line-height: 20px; display: block; vertical-align: top;" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- END header --> <!-- intro -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 28px; line-height: 32px;"><strong>Creative Cloud Developer Newsletter</strong></td>
+</tr>
+<tr>
+<td style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 10px; padding-bottom: 40px;" data-nl-format="datetime">Hello! Welcome to the October 2021 issue of our Creative Cloud Developer newsletter.<br /><span class="nl-dce-fragment nl-dce-done" id="span163312180812277" data-nl-name="MirrorPage" data-nl-label="Link to mirror page (MirrorPage)" contenteditable="false">Link to mirror page</span></td>
+</tr>
+</tbody>
+</table>
+<!-- END intro --> <!-- pod1 marquee -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px;"><a href="https://forums.adobeprerelease.com/exmancmd/discussion/134/what-to-expect-in-the-extendscript-debugger-2-0-prerelease/p1?new=1" target="_blank" style="color: #1473e6;"> <img class="mobile-image" alt="Screencap of debugging ExtendScript in VSCode" src="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM28324.e.esdb_alpha_2624x1480.png" srcset="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM28324.e.esdb_alpha_2400x1256.png 621w,
+				https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM28324.e.esdb_alpha_2624x1480.png 1200w" sizes="(max-width: 480px) 50vw" width="600" height="auto" border="0" hspace="0" vspace="0" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: block; vertical-align: top;" /> </a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod1 marquee --> <!-- pod1 -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td class="headline" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><strong>ExtendScript Debugger 2.0 News</strong></td>
+</tr>
+<tr>
+<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 20px;">If you use the <a href="https://marketplace.visualstudio.com/items?itemName=Adobe.extendscript-debug">ExtendScript Debugger plugin</a> for Visual Studio code, we have big news: version 2.0 is coming soon! You’ll be able to try out a prerelease in the coming months by signing up for our Creative Cloud Developer Prerelease. More details are available now in the <a href="https://forums.adobeprerelease.com/exmancmd/discussion/134/what-to-expect-in-the-extendscript-debugger-2-0-prerelease/p1?new=1">prerelease forum</a>.</td>
+</tr>
+<tr>
+<td style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 40px;"><a href="https://forums.adobeprerelease.com/exmancmd/discussion/134/what-to-expect-in-the-extendscript-debugger-2-0-prerelease/p1?new=1" target="_blank" style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>Get the details</strong></a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod1 --> <!-- pod2 marquee -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 100px;"><a href="https://medium.com/adobetech/spectrum-textfield-issues-in-photoshop-xd-max-2021-releases-bb1c3d25ea5b?source=friends_link&sk=1b6c76ced84fc2d4bcc95cf8ad336f90" target="_blank" style="color: #1473e6;"> <img class="mobile-image" alt="Person wearing sunglasses, MAX logo, and colorful brush strokes" src="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Twitter_header_photo_1500X500.png" srcset="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Twitter_header_photo_1500X500.png 621w,
+				https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Twitter_header_photo_1500X500.png 1200w" sizes="(max-width: 480px) 50vw" width="600" height="auto" border="0" hspace="0" vspace="0" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: block; vertical-align: top;" /> </a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod2 marquee --> <!-- pod2 -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td class="headline" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><strong>Known Issue: Spectrum Text Field Bugs in Photoshop & XD MAX 2021 Releases</strong></td>
+</tr>
+<tr>
+<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 20px;">In UXP 5.5.1 (the version shipping at <a href="https://max.adobe.com/">Adobe MAX 2021</a> in both Adobe XD version 45 and Photoshop version 23), there are some issues that may impact the usability of your plugin. You may wish to apply some of these workarounds in order to avoid any issues after MAX.</td>
+</tr>
+<tr>
+<td style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 40px;"><a href="https://medium.com/adobetech/spectrum-textfield-issues-in-photoshop-xd-max-2021-releases-bb1c3d25ea5b?source=friends_link&sk=1b6c76ced84fc2d4bcc95cf8ad336f90" target="_blank" style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>Find the workaround</strong></a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod2 --> <!-- pod3 marquee -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+<tbody>
+<tr>
+<td align="center" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 100px;"><a href="https://max.adobe.com" target="_blank" style="color: #1473e6;"> <img class="mobile-image" alt="blue banner multiple portraits and the text Adobe MAX, The Creativity Conference" src="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Facebook_post_image_1200X628.png" srcset="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Facebook_post_image_1200X628.png 621w,
+				https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/MAX2021_RegOpen_bnr_Facebook_post_image_1200X628.png 1200w" sizes="(max-width: 480px) 50vw" width="600" height="auto" border="0" hspace="0" vspace="0" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: inline-block; vertical-align: top;" /> </a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod3 marquee --> <!-- pod3 -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td class="headline" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><strong>Adobe MAX, October 26-28</strong></td>
+</tr>
+<tr>
+<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 20px;">Adobe MAX is free and digital again this year. The agenda includes three days of content, Sneaks, and 400+ sessions. Look for other plugin developers on <a href="https://adobemax.braindate.com/">Brain Date at MAX</a>!</td>
+</tr>
+<tr>
+<td style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 40px; padding-bottom: 40px;"><a href="https://max.adobe.com" target="_blank" style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>Register for free</strong></a></td>
+</tr>
+</tbody>
+</table>
+<!-- END pod3 --> 
+<!-- pod4 marquee -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+	<tbody>
+	<tr>
+	<td align="center" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><a href="https://forums.creativeclouddeveloper.com/t/uxp-developer-courses-books-and-workshop-recordings/3771" target="_blank" style="color: #1473e6;"> <img class="mobile-image" alt="Davide Barranca's UXP Playlist title card" src="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_DavideCoverImage_2844x1600.png" srcset="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_DavideCoverImage_2844x1600.png 621w,
+					https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_DavideCoverImage_2844x1600.png 1200w" sizes="(max-width: 480px) 50vw" width="600" height="auto" border="0" hspace="0" vspace="0" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: inline-block; vertical-align: top;" /> </a></td>
+	</tr>
+	</tbody>
+	</table>
+	<!-- END pod4 marquee --> <!-- pod4 -->
+	<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+	<tbody>
+	<tr>
+	<td class="headline" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><strong>Davide Barranca’s New Course, Plus UXP Resources from Simon Henke</strong></td>
+	</tr>
+	<tr>
+	<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 20px;"> <p>Davide Barranca, author of the Adobe Photoshop HTML Panels Development course, has launched a new course called “<a href="https://www.ps-scripting.com/uxp-react.html?utm_source=slack&utm_medium=post&utm_id=uxplaunch">Adobe UXP plugins development with React JS</a>”.
+	</p>
+	<p>For more development resources, we’ve also uploaded our <a href="https://vimeo.com/showcase/xd-plugin-workshop">XD Plugin Developer Workshop</a> and Simon Henke’s <a href="http://vimeo.com/showcase/photoshop-plugin-workshop">Photoshop Plugin Developer Workshop</a> from Partner days.</p>
+		 <p>
+		Whether you’re a new developer or migrating from CEP, be sure to check out our new <a href="https://forums.creativeclouddeveloper.com/t/uxp-developer-courses-books-and-workshop-recordings/3771">list of resources for developers</a>.</p></td>
+	</tr>
+	<tr>
+	<td style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 20px; padding-bottom: 40px;"><a href="https://forums.creativeclouddeveloper.com/t/uxp-developer-courses-books-and-workshop-recordings/3771" target="_blank" style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>New resources for UXP</strong></a></td>
+	</tr>
+	</tbody>
+	</table>
+	<!-- END pod4 --> 
+
+<!-- pod5 marquee -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+	<tbody>
+	<tr>
+	<td align="center" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;">
+        <a href="https://spark.adobe.com/page/4WCHG1SKsetMK/"
+                                                                target="_blank" style="color: #1473e6;"> <img
+                                                                    class="mobile-image"
+                                                                    alt="Adobe Stock illustration of a remote event"
+                                                                    src="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_AdobeStockEvents_1240x800.png"
+                                                                    srcset="https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_AdobeStockEvents_1240x800.png 621w,
+                                 https://landing.adobe.com/content/dam/landing/uploads/2021/na/ccdevex/DM24405e_AdobeStockEvents_1240x800.png 1200w"
+                                                                    sizes="(max-width: 480px) 50vw" width="500" height="auto"
+                                                                    border="0" hspace="0" vspace="0"
+                                                                    style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: block; vertical-align: top;" />
+        </td>
+	</tr>
+	</tbody>
+	</table>
+	<!-- END pod5 marquee --> <!-- pod5 -->
+	<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+	<tbody>
+	<tr>
+	<td class="headline" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;"><strong>Present Your Plugin During Photoshop Live</strong></td>
+	</tr>
+	<tr>
+	<td style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 20px;">Developers, here’s a chance to gain more <strong>visibility</strong> and some great <strong>feedback for your plugin</strong> from our community of Photoshop experts! We would like to invite you to the <strong>UXP Plugin Developer Showcase</strong> of the Photoshop Live meetings to present your UXP Photoshop Plugin. If you already have one out on the marketplace or one in the pipeline, this is for you!
+	</td>
+	</tr>
+	<tr>
+	<td style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 40px; padding-bottom: 100px;"><a href="https://spark.adobe.com/page/4WCHG1SKsetMK/" target="_blank" style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>Showcase your plugin</strong></a></td>
+	</tr>
+	</tbody>
+	</table>
+	<!-- END pod5 --> 
+
+<!-- pod1 marquee -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0"
+cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+	<tr>
+		<td
+			style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px;">
+			<a href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&source=cc_devex_newsletter_oct"
+				target="_blank" style="color: #1473e6;"> <img
+					class="mobile-image" alt="Graphic of people taking a survey"
+					src="https://landing.adobe.com/content/dam/landing/uploads/2020/na/DM19792e.surveygraphic.1280x720.png"
+					srcset="https://landing.adobe.com/content/dam/landing/uploads/2020/na/DM19792e.surveygraphic.1280x720.png 621w,
+											  https://landing.adobe.com/content/dam/landing/uploads/2020/na/DM19792e.surveygraphic.1280x720.png 1200w"
+					sizes="(max-width: 480px) 50vw" width="500" height="auto"
+					border="0" hspace="0" vspace="0"
+					style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; display: block; vertical-align: top;" />
+			</a>
+		</td>
+	</tr>
+</tbody>
+</table>
+<!-- END pod1 marquee -->
+<!-- pod1 -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0"
+cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+	<tr>
+		<td class="headline"
+			style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 22px; line-height: 28px; padding-top: 40px;">
+			<strong>Community Feedback: We Value Your Voice</strong>
+		</td>
+	</tr>
+	<tr>
+		<td
+			style="color: #2c2c2c; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 18px; line-height: 26px; padding-top: 10px;">
+			<p></p>
+			<div>This month we’re asking for your feedback. Please respond to
+				the question below to share your thoughts with us. After
+				selecting a number you will be taken to the browser to complete
+				and submit the response.</div>
+			<div> </div>
+			<div>You will also have the option to share additional details with
+				our team. Your feedback helps us serve you better. Thank you for
+				taking a moment to respond and for building on Creative Cloud!
+			</div>
+			<div> </div>
+			<!-- Quick Start NPS : BEGIN -->
+			<table align="center" role="presentation" cellspacing="0"
+				cellpadding="0" border="0" width="100%"
+				style="margin: auto; border-collapse: separate!important;">
+				<tbody>
+					<tr>
+						<td colspan="11" class="question"
+							style="line-height: 140%; font-weight: bold;">
+							How likely are you to recommend the Creative Cloud
+							Developer Platform to a friend or colleague?</td>
+					</tr>
+					<tr>
+						<td colspan="11">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="11" style="width: 100%;" width="100%">
+							<table border="0" cellpadding="0" cellspacing="0"
+								style="border-collapse: separate!important;"
+								width="100%">
+								<tr>
+									<td style="width:0.8%;">&nbsp;</td>
+									<td style="width:49.2%; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; vertical-align: bottom; line-height: 140%;"
+										class="scale">Not at all<br>likely</td>
+									<td style="width:49.2%; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; vertical-align: bottom; line-height: 140%;"
+										class="scale">Very<br>likely</td>
+									<td style="width:0.8%;">&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="4">&nbsp;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+
+						<!-- Button 0 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=0&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">0</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=0&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">0</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 0 : END -->
+
+						<!-- Button 1 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; background: 262626; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=1&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">1</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=1&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">1</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 1 : END -->
+
+						<!-- Button 2 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=2&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">2</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=2&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">2</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 2 : END -->
+
+						<!-- Button 3 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=3&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">3</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=3&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">3</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 3 : END -->
+
+						<!-- Button 4 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=4&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">4</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=4&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">4</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 4 : END -->
+
+						<!-- Button 5 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=5&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">5</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=5&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">5</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 5 : END -->
+
+						<!-- Button 6 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=6&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">6</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=6&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">6</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 6 : END -->
+
+						<!-- Button 7 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=7&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">7</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=7&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">7</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 7 : END -->
+
+						<!-- Button 8 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=8&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">8</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=8&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">8</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 8 : END -->
+
+						<!-- Button 9 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!--[if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=9&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">9</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><!-->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=9&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">9</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 9 : END -->
+
+						<!-- Button 10 : BEGIN -->
+						<td class="button-td button-td-secondary"
+							style="border-radius: 0px; text-align: center; width: 9%;"
+							valign="top" width="9%">
+							<!-- [if mso]>
+	  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=10&source=cc_devex_newsletter_oct" style="height:40px;v-text-anchor:middle;width:49px;" arcsize="3%" strokecolor="#1473E6" fillcolor="#1473E6">
+	  <w:anchorlock/>
+	  <center style="color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;">10</center>
+	  </v:roundrect>
+  <![endif]-->
+							<!--[if !mso]><! -->
+							<a class="button-a button-a-secondary"
+								href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&Quickstart=10&source=cc_devex_newsletter_oct"
+								style="background: #1473E6; border: 1px solid #1473E6; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 250%; font-weight: normal; text-decoration: none; padding: 0px; color: #fff; border-radius: 3px; display: inline-block; text-align: center; text-decoration:none; width: 88%; height: auto; -webkit-text-size-adjust:none; mso-hide: all;">10</a>
+							<!--><![endif]-->
+						</td>
+						<!-- Button 10 : END -->
+
+					</tr>
+				</tbody>
+			</table>
+			<div> </div>
+			<!-- Quick Start NPS : END -->
+			<p></p>
+
+		</td>
+	</tr>
+	<tr>
+		<td
+			style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 0px; padding-bottom: 40px;">
+			<a href="https://adobe.allegiancetech.com/cgi-bin/qwebcorporate.dll?idx=77S7T2&design=1&source=cc_devex_newsletter_oct"
+				target="_blank"
+				style="border: 2px solid #747474; border-radius: 20px; color: #747474; display: inline-block; font-size: 16px; line-height: 16px; padding: 10px; outline: none; text-align: center; text-decoration: none; width: 180px; -webkit-text-size-adjust: none;"><strong>Take
+					the Survey</strong></a>
+		</td>
+	</tr>
+	<tr>
+		<td
+			style="color: #747474; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 16px; line-height: 20px; padding-top: 0px; padding-bottom: 40px;">
+	<p>		Thank you!</p>
+ 
+<p>The Creative Cloud Developer Ecosystem Team</p>
+
+		</td>
+	</tr>
+
+</tbody>
+</table>
+<!-- END pod1 -->
+
+
+<!-- END email content --></td>
+</tr>
+<tr>
+<td bgcolor="#F5F5F5" style="background-color: #f5f5f5;"><!-- banner -->
+<table class="full-width" align="center" width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 600px;">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 15px; line-height: 20px;"><img class="mobile-image" alt="Creativity for all." src="https://landing.adobe.com/dam/global/images/creativity-for-all.footer.desktop.1200x600.png" srcset="https://landing.adobe.com/dam/global/images/creativity-for-all.footer.mobile.800x600.png 621w,
+				https://landing.adobe.com/dam/global/images/creativity-for-all.footer.desktop.1200x600.png 1200w" sizes="(max-width: 480px) 50vw" width="600" height="auto" border="0" hspace="0" vspace="0" style="color: #000000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 15px; line-height: 20px; display: block; vertical-align: top;" /></td>
+</tr>
+</tbody>
+</table>
+<!-- END banner --> <!-- logo & social -->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td valign="middle" style="padding-top: 50px;">
+<div style="font-size: 0;"><!--[if mso]>
+				  <table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:500px;"><tr><td align="left" valign="middle" width="50%">
+				  <![endif]-->
+<div style="display: inline-block; vertical-align: middle; width: calc(230400px - 48000%); min-width: calc(50%); max-width: 100%;"><!-- left -->
+<table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+<tbody>
+<tr>
+<td style="color: #eb1000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 12px; line-height: 18px;"><img alt="Adobe" src="https://landing.adobe.com/dam/global/images/adobe-logo.classic.160x222.png" width="30" height="auto" border="0" hspace="0" vspace="0" style="color: #eb1000; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 12px; line-height: 18px; display: block; vertical-align: top;" /></td>
+</tr>
+</tbody>
+</table>
+<!-- END left --></div>
+<!--[if mso]>
+				  </td><td align="right" valign="middle" width="50%">
+				  <![endif]-->
+<div style="display: inline-block; vertical-align: middle; width: calc(230400px - 48000%); min-width: calc(50%); max-width: 100%;"><!-- right -->
+<table class="social" align="right" width="auto" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float: right;">
+<tbody>
+<tr>
+<td style="color: #959595; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 12px; line-height: 12px;"><a href="https://www.facebook.com/adobecreativecloud" alias="Facebook" target="_blank"><img class="social" alt="Facebook" src="https://landing.adobe.com/dam/global/images/social/facebook.959595.png" width="10" height="auto" border="0" hspace="0" vspace="0" style="display: block; vertical-align: top;" /></a></td>
+<td width="30" style="width: 30px;"> </td>
+<td style="color: #959595; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 12px; line-height: 12px;"><a href="https://www.instagram.com/adobecreativecloud" alias="Instagram" target="_blank"><img class="social" alt="Instagram" src="https://landing.adobe.com/dam/global/images/social/instagram.959595.png" width="18" height="auto" border="0" hspace="0" vspace="0" style="display: block; vertical-align: top;" /></a></td>
+<td width="30" style="width: 30px;"> </td>
+<td style="color: #959595; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 12px; line-height: 12px;"><a href="https://www.twitter.com/adobedevs" alias="Twitter" target="_blank"><img class="social" alt="Twitter" src="https://landing.adobe.com/dam/global/images/social/twitter.959595.png" width="20" height="auto" border="0" hspace="0" vspace="0" style="display: block; vertical-align: top;" /></a></td>
+</tr>
+</tbody>
+</table>
+<!-- END right --></div>
+<!--[if mso]>
+				</td></tr></table>
+				<![endif]--></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- END logo & social --> <!-- legal-->
+<table class="email-width" align="center" width="500" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 500px;">
+<tbody>
+<tr>
+<td class="legal" style="color: #959595; font-family: adobe-clean, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif; font-size: 11px; line-height: 18px; padding-top: 50px; padding-bottom: 100px;">Adobe services, like Adobe Creative Cloud, are available only to users 13 and older. Use of Adobe services and applications requires agreement with the applicable <a href="https://www.adobe.com/legal/terms.html" alias="FOOTER - Terms" target="_blank" style="color: #959595;">Terms of Use</a> and the <a href="https://www.adobe.com/privacy.html" alias="FOOTER - Privacy Policy" target="_blank" style="color: #959595;">Adobe Privacy Policy</a>.<br /><br /> Adobe and the Adobe logo are either registered trademarks or trademarks of Adobe in the United States and/or other countries. All other trademarks are the property of their respective owners.<br /><br /> This is a marketing email from Adobe, 345 Park Avenue, San Jose, CA 95110 USA. <span class="nl-dce-fragment nl-dce-done" id="span163312168291949" data-nl-name="adbeServiceComUnsubscriptionLink" data-nl-label="Adobe service communications unsubscription link (adbeServiceComUnsubscriptionLink)" contenteditable="false">Adobe service communications unsubscription link</span> to unsubscribe. Please review the <a href="https://www.adobe.com/privacy.html" alias="FOOTER - Privacy Policy" target="_blank" style="color: #959595;">Adobe Privacy Policy</a>.<br /><br /> To ensure email delivery, add <a href="https://landing.adobe.com/dam/downloads/vcards/adobe.vcf" alias="Add to address book - mail@mail.adobe.com" target="_blank" style="color: #959595;">mail@mail.adobe.com</a> to your address book, contacts, or safe sender list.</td>
+</tr>
+</tbody>
+</table>
+<!-- END legal--></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

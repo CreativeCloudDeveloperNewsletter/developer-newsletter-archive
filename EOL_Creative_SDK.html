@@ -1,0 +1,758 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Adobe Creative SDK</title>
+    <style type="text/css">
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .appleLinks a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .appleLinksFooter a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+        .mobile {
+            border-spacing: 0;
+            display: none !important;
+            height: 0;
+            max-height: 0;
+            mso-hide: all;
+            overflow: hidden;
+            visibility: hidden;
+            width: 0;
+        }
+
+        @media only screen and (max-width:480px) {
+
+            td[class="web"],
+            table[class="web"],
+            div[class="web"],
+            br[class="web"],
+            span[class="web"] {
+                display: none !important;
+            }
+
+            .mobile,
+            td[class="mobile"],
+            table[class="mobile"],
+            img[class="mobile"],
+            div[class="mobile"],
+            tr[class="mobile"] {
+                display: block !important;
+                width: auto !important;
+                overflow: visible !important;
+                height: auto !important;
+                max-height: inherit !important;
+                font-size: 15px !important;
+                line-height: 21px !important;
+                visibility: visible !important;
+            }
+
+            table[class="email-width"] {
+                width: 90% !important;
+            }
+
+            td[class="full-width"],
+            table[class="full-width"] {
+                width: 100% !important;
+            }
+
+            table[class="content-width"],
+            td[class="content-width"] {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            table[class="footer-content"],
+            td[class="footer-content"] {
+                clear: both !important;
+                display: block !important;
+                width: auto !important;
+            }
+
+            td[class="mobile-spacer"],
+            table[class="mobile-spacer"] {
+                width: 18px !important;
+            }
+
+            img[class="mobile-image"] {
+                display: inline-block !important;
+                height: auto !important;
+                max-height: inherit !important;
+                overflow: visible !important;
+                visibility: visible !important;
+                width: 100% !important;
+            }
+
+            a[class="button"] {
+                background-color: #2b9af3 !important;
+                border-radius: 6px !important;
+                color: #ffffff !important;
+                display: inline-block !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                text-decoration: none !important;
+                -webkit-text-size-adjust: none !important;
+                font-size: 14px !important;
+                line-height: 18px !important;
+                width: 100% !important;
+                margin-top: 12px !important;
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+
+            .header,
+            div[class="header"] {
+                font-size: 16px !important;
+                line-height: 22px !important;
+            }
+
+            .headline,
+            div[class="headline"] {
+                font-size: 26px !important;
+                line-height: 28px !important;
+            }
+
+            td[class="mobile-text"],
+            table[class="mobile-text"] {
+                font-size: 15px !important;
+                line-height: 21px !important;
+            }
+
+            td[class="txt-lg"] {
+                font-size: 17px !important;
+                line-height: 21px !important;
+            }
+
+            td[class="txt-ctr"] {
+                text-align: center !important;
+            }
+
+            img[class="social"] {
+                height: 28px !important;
+                width: 28px !important;
+            }
+
+            td[class="social-spacer"] {
+                width: 15px !important;
+            }
+
+            td[class="icon-cell"] {
+                padding-top: 29px !important;
+                padding-bottom: 0px !important;
+            }
+
+            td[class="spacer"] {
+                background-color: #262626 !important;
+                padding-top: 20px !important;
+            }
+        }
+    </style>
+    <style acrite-template-css="true">
+        /*************************************************************************
+      * These CSS properties are relative to the template.
+      * ! You can break the rendering by changing rules here !
+      **************************************************************************/
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #FFFFFF;
+        }
+
+        td {
+            padding: 0;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .fragment,
+        .component {
+            padding: 0;
+        }
+
+        .divider-container {
+            padding: 5px 0;
+            font-size: 0px;
+        }
+
+        .text-container p {
+            margin: 0;
+        }
+
+        .image-container {
+            line-height: 0;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Styles for structures */
+        .structure {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+
+        .structure__table {
+            table-layout: fixed;
+            margin: 0 auto;
+            border-spacing: 0;
+            background-size: auto;
+            background-repeat: no-repeat;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        .colspan1,
+        .colspan2,
+        .colspan3,
+        .colspan4,
+        .colspan33,
+        .colspan66 {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+
+        .colspan1 {
+            width: 100%;
+        }
+
+        .colspan2 {
+            width: 50%;
+        }
+
+        .colspan3 {
+            width: 75%;
+        }
+
+        .colspan4 {
+            width: 25%;
+        }
+
+        .colspan33 {
+            width: 33%;
+        }
+
+        .colspan66 {
+            width: 66%;
+        }
+
+        /* Styles for component */
+        .component-social-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Styles for component carousel */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            [data-component-id="carousel"] .fallback {
+                display: none;
+                display: none !important;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            [data-component-id="carousel"] .interactive {
+                display: block !important;
+                max-height: none !important;
+            }
+        }
+
+        [data-component-id="carousel"] .dock {
+            display: flex;
+            width: 100%;
+            position: relative;
+            left: 0;
+        }
+
+        [data-component-id="carousel"] .dock .thumbnailContainer {
+            display: flex;
+            flex: 1 0;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        [data-component-id="carousel"] .thumbnail {
+            height: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        [data-component-id="carousel"] .thumbnail.not-empty::before {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        [data-component-id="carousel"] .thumbnail img {
+            width: calc(100% - 4px) !important;
+            border: 2px solid rgb(234, 234, 234);
+            transition: .5s border-color;
+        }
+
+        [data-component-id="carousel"] .thumbnailLabel {
+            width: 100%;
+        }
+
+        [data-component-id="carousel"] .thumbnail:hover img {
+            border-color: #1473e6;
+        }
+
+        [data-component-id="carousel"] .thumbnail .component-image-container {
+            border: 1px dashed rgb(234, 234, 234);
+        }
+
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.dock div.thumbnail0 img,
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.dock div.thumbnail1 img,
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.dock div.thumbnail2 img,
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.dock div.thumbnail3 img,
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.dock div.thumbnail4 img,
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.dock div.thumbnail5 img {
+            border-color: #1473e6;
+        }
+
+        [data-component-id="carousel"] .gallery {
+            width: 100%;
+            position: relative;
+            min-height: 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        [data-component-id="carousel"] .galleryImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: .5s opacity;
+        }
+
+        [data-component-id="carousel"] .galleryImage:first-child {
+            position: relative;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.gallery:first-of-type img.gallery1,
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.gallery:first-of-type img.gallery2,
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.gallery:first-of-type img.gallery3,
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.gallery:first-of-type img.gallery4,
+        [data-component-id="carousel"] [id^="radioInput0"]:checked~div.gallery:first-of-type img.gallery5 {
+            opacity: 0;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.gallery:first-of-type img.gallery0,
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.gallery:first-of-type img.gallery2,
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.gallery:first-of-type img.gallery3,
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.gallery:first-of-type img.gallery4,
+        [data-component-id="carousel"] [id^="radioInput1"]:checked~div.gallery:first-of-type img.gallery5 {
+            opacity: 0;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.gallery:first-of-type img.gallery0,
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.gallery:first-of-type img.gallery1,
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.gallery:first-of-type img.gallery3,
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.gallery:first-of-type img.gallery4,
+        [data-component-id="carousel"] [id^="radioInput2"]:checked~div.gallery:first-of-type img.gallery5 {
+            opacity: 0;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.gallery:first-of-type img.gallery0,
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.gallery:first-of-type img.gallery1,
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.gallery:first-of-type img.gallery2,
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.gallery:first-of-type img.gallery4,
+        [data-component-id="carousel"] [id^="radioInput3"]:checked~div.gallery:first-of-type img.gallery5 {
+            opacity: 0;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.gallery:first-of-type img.gallery0,
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.gallery:first-of-type img.gallery1,
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.gallery:first-of-type img.gallery2,
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.gallery:first-of-type img.gallery3,
+        [data-component-id="carousel"] [id^="radioInput4"]:checked~div.gallery:first-of-type img.gallery5 {
+            opacity: 0;
+        }
+
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.gallery:first-of-type img.gallery0,
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.gallery:first-of-type img.gallery1,
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.gallery:first-of-type img.gallery2,
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.gallery:first-of-type img.gallery3,
+        [data-component-id="carousel"] [id^="radioInput5"]:checked~div.gallery:first-of-type img.gallery4 {
+            opacity: 0;
+        }
+
+        span.preheader {
+            display: none !important;
+        }
+
+        /* Table media queries */
+        @media screen and (max-width: 500px) {
+            body {
+                width: 100% !important;
+                min-width: 0px !important;
+            }
+
+            .structure__table {
+                width: 100%;
+            }
+
+            th {
+                display: block !important;
+                width: auto !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .container-small-size th {
+                display: table-cell !important;
+                width: 100% !important;
+            }
+        }
+
+        /* MSO OVERRIDE */
+        .ExternalClass {
+            width: 100%;
+        }
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: block;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 19px 0 19px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 20px 0 20px 0;
+        }
+
+        h3 {
+            font-size: 19px;
+            margin: 19px 0 19px 0;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin: 21px 0 21px 0;
+        }
+
+        h5 {
+            font-size: 13px;
+            margin: 22px 0 22px 0;
+        }
+
+        h6 {
+            font-size: 11px;
+            margin: 25px 0 25px 0;
+        }
+    </style>
+</head>
+
+<body bgcolor="#262626" style="background-color: rgb(240, 240, 240); margin: 0px; padding: 0px; -webkit-font-smoothing: antialiased; width: 100% !important; min-width: 750px;"
+    topmargin="0" class="is-html-mode" data-contenteditable="true">
+    <div style="font-size: 1px; color: #262626; display: none; overflow: hidden; visibility: hidden;"></div>
+    <table style="background-color: #f0f0f0;" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#262626">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="full-width" style="background-color: #f0f0f0;" width="600" cellspacing="0"
+                        cellpadding="0" border="0" bgcolor="#f0f0f0" align="center">
+                        <tbody>
+                            <tr>
+                                <td class="web" style="color: #757575; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 13px; padding-top: 12px; padding-bottom: 9px;"
+                                    align="right" data-nl-format="datetime">Creative SDK: end of support for the Image
+                                    Editor <span class="acr-block nl-dce-fragment nl-dce-done" data-nl-label="Link to mirror page (MirrorPage)"
+                                        data-nl-name="MirrorPage" data-contenteditable="false" contenteditable="false">Link
+                                        to mirror page</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="email-width" width="600" cellspacing="0" cellpadding="0" border="0" align="center">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!-- BEGIN email content -->
+                                    <!-- header -->
+                                    <table class="full-width" style="background-color: #ffffff;" width="600"
+                                        cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td valign="top">
+                                                    <table class="full-width" width="549" cellspacing="0" cellpadding="0"
+                                                        border="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="mobile-spacer" width="20"></td>
+                                                                <td style="color: #ffffff; font-family: Helvetica Neue Light, Helvetica Light, Helvetica, Verdana, Arial, sans-serif; font-size: 36px; font-weight: 100; line-height: 38px; padding-top: 30px;"
+                                                                    valign="middle" align="left"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td style="color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;"
+                                                    width="39" valign="top" align="right"><img class="logo" style="background-color: #ff0000; display: inline-block; vertical-align: top;"
+                                                        alt="Adobe" src="http://landing.adobe.com/dam/global/images/adobe-logo.red-tag.78x128.png"
+                                                        width="39" vspace="0" border="0" hspace="0" height="64" /></td>
+                                                <td width="12"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END header -->
+                                    <!-- pod 1 marquee desktop -->
+                                    <table class="web" style="background-color: #ffffff;" width="600" cellspacing="0"
+                                        cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="web" style="background-color: #ffffff;" width="600" cellspacing="0"
+                                        cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr class="web">
+                                                <td class="web" style="color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 1px;"><img
+                                                        class="web" alt="Adobe Creative SDK News" src="https://d2apqhlbomhre.cloudfront.net/images/KV.png"
+                                                        width="600" border="0" style="color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; vertical-align: top;" /></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="web" style="background-color: #ffffff;" width="600" cellspacing="0"
+                                        cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="web" style="background-color: #ffffff;" width="600" cellspacing="0"
+                                        cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="web" style="color: #959595; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; padding-bottom: 12px;"
+                                                    valign="top"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END pod 1 marquee desktop -->
+                                    <!-- pod 1 marquee mobile -->
+                                    <!-- END pod 1 marquee mobile -->
+                                    <!-- pod 1 -->
+                                    <table class="full-width" style="background-color: #ffffff;" width="600"
+                                        cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="txt-lg" style="color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 20px; padding-bottom: 16px; padding-top: 4px;"
+                                                    valign="top"><strong> </strong></td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END pod 1 -->
+                                    <!-- spacer table -->
+                                    <table class="full-width" style="background-color: #ffffff;" width="600"
+                                        cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td style="background-color: #ffffff; font-size: 0px; line-height: 0px;"
+                                                    bgcolor="#ffffff" height="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END spacer table -->
+                                    <!-- pod 4 & pod 5 content -->
+                                    <div class="mobile" style="display: none; float: none; height: 0; max-height: 0; overflow: hidden; width: 0;">
+                                        <table class="mobile" style="background-color: #ffffff; display: none; height: 0; max-height: 0; overflow: hidden; visibility: hidden; width: 0;"
+                                            width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff"
+                                            align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="mobile" style="color: #959595; font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; padding-bottom: 12px; overflow: hidden; display: none; visibility: hidden; width: 0;">
+                                                        <div class="mobile" style="display: none; float: none; height: 0; max-height: 0; overflow: hidden; width: 0;"><img
+                                                                class="mobile-image" style="display: none; max-height: 0; overflow: hidden; vertical-align: top; visibility: hidden; width: 0;"
+                                                                alt="Adobe Creative SDK" src="https://d2apqhlbomhre.cloudfront.net/images/KV.png"
+                                                                width="100%" vspace="0" border="0" hspace="0" height="38" /></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <table class="full-width" style="background-color: #ffffff;" width="600"
+                                        cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="txt-lg" style="color: #959595; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 20px; padding-bottom: 16px;"
+                                                    valign="top" data-nl-format="datetime"><strong> End of Support for
+                                                        the Image Editor on November 30th, 2018 </strong> <br /> <br />
+                                                    <div data-nl-format="datetime">
+                                                        <div>As we announced last year, we are ending support for the
+                                                            Image Editor component in the Creative SDK. If you haven’t
+                                                            already, we recommend that you remove the Image Editor UI
+                                                            from your web or mobile applications as soon as possible to
+                                                            avoid further disruption to the user experience in your
+                                                            application.</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <br />
+                                                    <div data-nl-format="datetime">Core services for the Image Editor
+                                                        UI will be shut off on Friday, 11/30. This means that the Image
+                                                        Editor will stop working for Web integrations and distribution
+                                                        of content (effects, frames, overlays, and stickers) will stop
+                                                        for iOS and Android integrations.</div>
+                                                    <div></div>
+                                                    <br />
+                                                    <div data-nl-format="datetime">The Color UI, Market Browser, and
+                                                        Labs components may continue to function, but they are also
+                                                        deprecated and no longer supported.</div>
+                                                    <div></div>
+                                                    <br />
+                                                    <div>You can find the End of Support Announcement <a href="#" id="a15408301390649"
+                                                            data-nl-type="externalLink" data-nl-lnkep-perso-attr-href="https://creativesdk.zendesk.com/hc/en-us/articles/115004788463-End-of-Support-for-the-Creative-SDK-Image-Editor-UI-Color-UI-Market-Browser-and-Labs-Components"
+                                                            data-id="al15408502149643cd5c4">here</a> and an FAQ <a href="#"
+                                                            id="a154083016031091" data-nl-type="externalLink"
+                                                            data-nl-lnkep-perso-attr-href="https://creativesdk.zendesk.com/hc/en-us/articles/115004788243-Creative-SDK-Image-Editor-UI-Color-UI-Market-Browser-Labs-Component-Deprecation-FAQ"
+                                                            data-id="al15408502149648d888e">here</a> .</div>
+                                                </td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="full-width" style="background-color: #ffffff;" width="600"
+                                        cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+                                        <tbody>
+                                            <tr>
+                                                <td class="mobile-spacer" width="20"></td>
+                                                <td class="txt-lg" style="color: #959595; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 20px; padding-bottom: 16px; padding-top: 4px;"
+                                                    valign="top"><strong> </strong></td>
+                                                <td class="mobile-spacer" width="20"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- END Connect pod -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END Discuss and Connect pods content -->
+                    <!-- END email content -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- campaign & social -->
+    <!-- campaign & social -->
+    <table class="email-width" style="background-color: #f0f0f0;" width="600" cellspacing="0" cellpadding="20" border="0"
+        bgcolor="#262626" align="center">
+        <tbody>
+            <tr>
+                <td data-nl-format="datetime">
+                    <!-- campaign --> <br />
+                    <table class="footer-content" style="background-color: #f0f0f0;" width="160" cellspacing="0"
+                        cellpadding="0" border="0" bgcolor="#262626" align="left">
+                        <tbody>
+                            <tr>
+                                <td style="color: #666666; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; padding-top: 20px; padding-right: 10px;"
+                                    valign="top"><img style="display: block; vertical-align: top;" alt="Enabled by Adobe Campaign"
+                                        src="http://landing.adobe.com/dam/global/images/enabled-by-adobe-campaign.dark.280x60.png"
+                                        width="140" vspace="0" border="0" hspace="0" height="30" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END campaign -->
+                    <!-- social -->
+                    <table class="footer-content" style="background-color: #f0f0f0; float: right;" width="400"
+                        cellspacing="0" cellpadding="0" border="0" bgcolor="#262626" align="right">
+                        <tbody>
+                            <tr>
+                                <!-- <td style="color: #666666; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; padding-top: 20px; padding-right: 10px;"
+                                    valign="middle" align="right">Join the conversation</td>
+                                <td style="padding-top: 20px;" width="16"><a href="https://www.facebook.com/CreativeSDK/"
+                                        target="_blank" alias="Facebook"><img class="social" style="display: block; vertical-align: top;"
+                                            alt="Facebook" src="http://landing.adobe.com/dam/global/images/social/facebook.png"
+                                            width="16" vspace="0" border="0" hspace="0" height="16" /></a></td>
+                                <td class="social-spacer" width="10"></td>
+                                <td style="padding-top: 20px;" width="16"><a href="https://twitter.com/creativesdk"
+                                        target="_blank" alias="Twitter"><img class="social" style="display: block; vertical-align: top;"
+                                            alt="Twitter" src="http://landing.adobe.com/dam/global/images/social/twitter.png"
+                                            width="16" vspace="0" border="0" hspace="0" height="16" /></a></td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- END social -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- END campaign & social -->
+    <table class="email-width" style="background-color: #f0f0f0;" width="600" cellspacing="0" cellpadding="20" border="0"
+        bgcolor="#262626" align="center">
+        <tbody>
+            <tr>
+                <td style="color: #666666; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height: 14px; padding-top: 10px; padding-bottom: 40px; text-align: left;"
+                    align="left" data-nl-format="datetime"> Adobe, the Adobe logo, and Creative Cloud are either
+                    registered trademarks or trademarks of Adobe  Incorporated in the United States and/or other
+                    countries. All other trademarks are the property of their respective owners. <br /> <br /> This
+                    email is from <span class="stay">Adobe, Inc., Creative SDK | 100 5th Avenue | New York NY | 10011.</span>
+                    <span class="nl-dce-fragment nl-dce-done" id="span152850830787264" data-nl-name="adbeServiceComUnsubscriptionLink"
+                        data-nl-label="undefined (undefined)" data-contenteditable="false" contenteditable="false">Adobe
+                        service communications unsubscription link</span> to unsubscribe. Please review the <a href="https://www.adobe.com/privacy.html"
+                        alias="FOOTER - Privacy Policy" target="_blank" style="color: #1473e6;" data-id="al1539367411576531b29">Adobe Privacy Policy</a>
+                    . <br /> <br /> To ensure email delivery, add <a href="https://landing.adobe.com/dam/downloads/vcards/adobe.vcf"
+                        alias="Add to address book - mail@info.adobesystems.com" target="_blank" style="color: #1473e6;"
+                        data-id="al1539367411576930c2b">mail@info.adobesystems.com</a> to your address book, contacts,
+                    or safe sender list.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
