@@ -50,6 +50,10 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .search-box {
+            position: relative;
+        }
+
         .search-box input {
             width: 100%;
             padding: 15px 20px;
@@ -132,9 +136,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.9em;
             color: white;
             text-align: center;
             padding: 20px;
+            overflow: hidden;
             position: relative;
         }
 
@@ -167,9 +173,8 @@
         }
 
         .card-date {
-            color: #555;
+            color: #888;
             font-size: 0.85em;
-            line-height: 1.3;
         }
 
         .filter-controls {
@@ -281,195 +286,108 @@
     </div>
 
     <script>
-        const subjectLines = {
-            '7/10/2018': 'Welcome to the new Creative Cloud Developer Newsletter',
-            '8/1/2018': 'Welcome to the new Creative Cloud Developer Newsletter',
-            '9/13/2018': 'CEP 9, Exchange News, Packaging Guides, and XD Updates',
-            '10/22/2018': 'Try XD Plugins, CEP 9, and Exchange Updates',
-            '11/21/2018': 'MAX highlights, XD plugin API news, and new integrations',
-            '12/13/2018': 'ExtendScript Toolkit News, New XD APIs, Exchange Trial Feature',
-            '1/17/2019': 'XD Events in Europe, XD plugin API news, and new integrations',
-            '2/22/2019': 'ExtendScript Debugger VSCode Plugin, XD Plugin European Tour',
-            '3/21/2019': 'ExtendScript Debugger for VSCode, XD Plugin API Changes',
-            '4/18/2019': 'VSCode ESTK Debugger Update, Big XD Plugin API Updates, Upcoming Events, Hiring for New Roles',
-            '5/16/2019': 'Upcoming Events, Video & Audio News, XD 19 APIs',
-            '6/27/2019': 'Talk UXP With Us, ExtendScript Debugger 1.1.1, XD 20, Hiring',
-            '7/23/2019': 'XD Panel Plugin APIs, ExtendScript Debugger, Hiring',
-            '8/21/2019': 'Catalina-Ready CEP 9.4 in Prerelease, XD Panel Plugins, ExManCmd Prerelease',
-            '9/30/2019': 'MAX Deadlines, New Exchange Policies, I/O Console Relaunch, CEP 9.4 Prerelease',
-            '10/16/2019': 'MAX deadlines extended, our MAX plans, New World Scripting Updates',
-            '11/27/2019': 'MAX Updates, CEP 9.4 and ExtendScript Toolkit Downloads, Adobe XD 24 and Cloud Content APIs',
-            '12/20/2019': 'Holidays, InDesign Server News, XD API News, and a ZXPSign Update',
-            '1/31/2020': '2019 Highlights, New Drag-and-Drop for XD Plugins, and more',
-            '2/20/2020': 'MAX in Europe, Porting from CEP to UXP, Classic Scripting Updates, and more',
-            '3/25/2020': 'Partner Day Goes Digital, Photoshop + UXP APIs, COVID-19 Updates',
-            '4/28/2020': 'Partner Day Dates, Photoshop + UXP, Premiere Pro & XD Plugin API Updates',
-            '5/28/2020': 'Partner Day in June, Photoshop + UXP, XD 29 Updates, and InDesign Server Changes',
-            '6/18/2020': 'Share Your Voice, Digital Partner Days, Adobe Fund Commissions, Photoshop + UXP',
-            '6/29/2020': 'Tell Us What You Think: Quick Question for Creative Cloud Developers',
-            '7/28/2020': 'CEP 10 Prerelease, Creating a Great Plugin Listing, UI Components Survey',
-            '8/24/2020': 'Try CEP 10 in Prerelease, Exchange Approvals Paused, Apply for a Commissioned Project',
-            '10/2/2020': 'MAX Readiness, Partner Reception, XD 32 & 33 Updates',
-            '10/22/2020': 'UXP in Photoshop, New Marketplace, Libraries API, New Forums, Partner Reception Post-MAX',
-            '11/23/2020': 'Apple Silicon, MAX News, InDesign Server Update, Hiring a New Grad',
-            '12/22/2020': 'Winter Break Review Pause, ARM Processor Update, InDesign Server 2020, Event Survey',
-            '1/29/2021': 'Community Feedback, C++ Illustrator Plugins, MLH, ARM Updates, XD 36.2 Bug Fix',
-            '2/22/2021': 'Community Feedback, Roundtable Feb 24, UXP Videos, Commissioned Projects',
-            '4/1/2021': 'Recompile Your C++ Plugins',
-            '5/6/2021': 'Update On InDesign C++ Plugins, Photoshop Meet-up May 11th',
-            '6/4/2021': 'CEP 11, ExManCmd Replacement, June Meetup, Partner Days in July',
-            '7/1/2021': 'Partner Days July 20-22, CEP 11 Known Issues, ExManCmd EOL, and Hiring',
-            '7/30/2021': 'Photoshop Extensibility Bug Reporting Survey',
-            '8/19/2021': 'Missed Partner Days? Here are the Recordings',
-            '10/3/2021': 'Developers Live, Adobe MAX, and a UXP Vue Sample',
-            '10/24/2021': 'VSCode Debugger News, MAX Updates, New Resources',
-            '12/22/2021': 'Adobe\'s Winter Break, plus ExtendScript Debugger 2.0 in Beta',
-            '1/28/2022': 'Join us for Office Hours in 2022',
-            '3/10/2022': 'UXP Plugin Command Line Installation, TypeScript for Photoshop, Office Hours Today',
-            '6/13/2022': 'Content Authenticity Workshop, Partner Days, ExtendScript Debugger 2.0, MAX',
-            '8/3/2022': 'Official CEP to UXP Migration Guide, Partner Days Recordings, and Lightroom Classic Support',
-            '8/17/2022': 'Big News about UXP Scripting, Office Hours August 18th, Photoshop Meetup Sept 8th',
-            '9/28/2022': 'Office Hours Sept 29, Marketplace Updates, UXP Scripting in InDesign Prerelease',
-            '10/17/2022': 'Adobe MAX Developer Chat, UXP 6.3 and UXP Developer Tool Updates',
-            '11/7/2022': 'Adobe Express Embed SDK, InDesign Scripting Powered by UXP, Office Hours Nov. 10',
-            '12/5/2022': 'Dec. 7 Developer Roundtable, Plugin Showcases and Adobe Express Extensibility General Interest Survey',
-            '1/26/2023': 'Jan 31 Partner & Developer Kickoff, Pixel APIs in Photoshop, Exchange Manifest Validation',
-            '2/15/2023': 'Office Hours Feb 16, UXP C++ Hybrid Plugins, Type 1 Fonts, Kick-Off Videos',
-            '3/15/2023': 'Office Hours March 16, New Developer Distribution Portal, Express and UXP news',
-            '4/18/2023': 'Office Hours April 20, Save the date for Partner Days, UXP News and Feedback',
-            '5/22/2023': 'Partner Days, Exchange News, Adobe MAX',
-            '6/9/2023': 'Introducing Express Add-ons',
-            '6/26/2023': 'Exchange Portal Migration, Partner Days, InDesign Updates, Plugin Showcases',
-            '7/14/2023': 'Exciting InDesign and UXP news, Office Hours and more',
-            '11/7/2023': 'Office Hours, MAX Recap, UXP Type Definitions, Adobe Express Embed SDK v4',
-            '12/12/2023': 'Developer Roundtable on Thursday, Adobe Express Document APIs Stable',
-            '1/22/2024': 'Office Hours, Spectrum Design Workshop and other updates',
-            '2/13/2024': 'Adobe Express Document APIs, Creative Cloud Office Hours, Optimizing Discoverability',
-            '3/19/2024': 'UXP Validator for VSCode, Adobe Express & Creative Cloud Office Hours, Add-ons Design Tips',
-            '4/15/2024': 'Adobe Fund for Design, Office Hours, MAX London, UXP v7.4',
-            '5/14/2024': 'May 2024: Community Feedback, Office Hours, Developers Live 2024, Adobe Fund for Design',
-            '6/14/2024': 'Join Adobe Developers Live online for free, June 19-20',
-            '8/13/2024': 'Add-on Marketplace, Office Hours, CEP 12 in PS Beta & Fund for Design',
-            '9/12/2024': 'New Express Add-on Playground, Office Hours and Adobe MAX',
-            '10/1/2024': 'Adobe Max announcements & Express Office Hours Wednesday',
-            '11/12/2024': 'Learn to Monetize Express Add-ons, Important Cross-Origin Updates, and Office Hours',
-            '12/10/2024': 'EU Digital Services Act, UXP in Premiere Pro Beta, Office Hours',
-            '3/10/2025': 'Text APIs are Live, Office Hours, Premiere Pro UXP Event',
-            '4/14/2025': 'Text APIs are Live, Office Hours, Premiere Pro UXP Event',
-            '4/29/2025': 'Adobe Developers Live; Agenda Shaped by You',
-            '5/27/2025': 'Adobe Developers Live 2025 - Speaker Highlights',
-            '6/3/2025': 'Share Your Experience with Adobe Express Add-ons',
-            '6/10/2025': 'Adobe Developers Live 2025: Keynotes & Partner Innovation',
-            '6/17/2025': 'Developers Live, DevPost Hackathon, Express Payment Tags, CEP 12 & More',
-            '6/23/2025': 'Tomorrow: Adobe Developers Live starts',
-            '7/15/2025': 'DevPost Hackathon, Developers Live Recordings, July Office Hours',
-            '8/11/2025': 'DevPost Winners, MCP Workshop, Office Hours, ExtendScript Debugger Update',
-            '9/15/2025': 'MCP Server, In Person Meet-up, API Updates, Office Hours',
-            '10/24/2025': 'Adobe MAX, Adobe Fund for Design Updates, Vibe Coding an Express Add-on',
-            '11/11/2025': 'New Text APIs, Special Premiere Pro Office Hours, New Add-on Developer Video Series',
-            '11/19/2025': 'Share Your Experience with Adobe Express Add-ons'
-        };
-
+        // Newsletter data
         const newsletters = [
-            { file: '01July2018.html', number: 1, label: 'July 2018', csvDate: '7/10/2018', year: 2018 },
-            { file: '02Aug2018.html', number: 2, label: 'August 2018', csvDate: '8/1/2018', year: 2018 },
-            { file: '03Sep2018.html', number: 3, label: 'September 2018', csvDate: '9/13/2018', year: 2018 },
-            { file: '04Oct2018.html', number: 4, label: 'October 2018', csvDate: '10/22/2018', year: 2018 },
-            { file: '05Nov2018.html', number: 5, label: 'November 2018', csvDate: '11/21/2018', year: 2018 },
-            { file: '06Dec2018.html', number: 6, label: 'December 2018', csvDate: '12/13/2018', year: 2018 },
-            { file: '07Jan2019.html', number: 7, label: 'January 2019', csvDate: '1/17/2019', year: 2019 },
-            { file: '08Feb2019.html', number: 8, label: 'February 2019', csvDate: '2/22/2019', year: 2019 },
-            { file: '09Mar2019.html', number: 9, label: 'March 2019', csvDate: '3/21/2019', year: 2019 },
-            { file: '10Apr2019.html', number: 10, label: 'April 2019', csvDate: '4/18/2019', year: 2019 },
-            { file: '11may2019.html', number: 11, label: 'May 2019', csvDate: '5/16/2019', year: 2019 },
-            { file: '12Jun2019.html', number: 12, label: 'June 2019', csvDate: '6/27/2019', year: 2019 },
-            { file: '13Jul2019.html', number: 13, label: 'July 2019', csvDate: '7/23/2019', year: 2019 },
-            { file: '14Aug2019.html', number: 14, label: 'August 2019', csvDate: '8/21/2019', year: 2019 },
-            { file: '15Sep2019.html', number: 15, label: 'September 2019', csvDate: '9/30/2019', year: 2019 },
-            { file: '16Oct2019.html', number: 16, label: 'October 2019', csvDate: '10/16/2019', year: 2019 },
-            { file: '17Nov2019.html', number: 17, label: 'November 2019', csvDate: '11/27/2019', year: 2019 },
-            { file: '18Dec2019.html', number: 18, label: 'December 2019', csvDate: '12/20/2019', year: 2019 },
-            { file: '19Feb2020.html', number: 19, label: 'February 2020', csvDate: '2/20/2020', year: 2020 },
-            { file: '20Mar2020.html', number: 20, label: 'March 2020', csvDate: '3/25/2020', year: 2020 },
-            { file: '21May2020.html', number: 21, label: 'May 2020', csvDate: '5/28/2020', year: 2020 },
-            { file: '22June2020.html', number: 22, label: 'June 2020', csvDate: '6/18/2020', year: 2020 },
-            { file: '23June2020.html', number: 23, label: 'June 2020', csvDate: '6/29/2020', year: 2020 },
-            { file: '24Jul2020.html', number: 24, label: 'July 2020', csvDate: '7/28/2020', year: 2020 },
-            { file: '25Aug2020.html', number: 25, label: 'August 2020', csvDate: '8/24/2020', year: 2020 },
-            { file: '26Sep2020.html', number: 26, label: 'September 2020', csvDate: '10/2/2020', year: 2020 },
-            { file: '27Oct2020.html', number: 27, label: 'October 2020', csvDate: '10/22/2020', year: 2020 },
-            { file: '28Nov2020.html', number: 28, label: 'November 2020', csvDate: '11/23/2020', year: 2020 },
-            { file: '29Dec2020.html', number: 29, label: 'December 2020', csvDate: '12/22/2020', year: 2020 },
-            { file: '30Jan2021.html', number: 30, label: 'January 2021', csvDate: '1/29/2021', year: 2021 },
-            { file: '31Feb2021.html', number: 31, label: 'February 2021', csvDate: '2/22/2021', year: 2021 },
-            { file: '32Mar2021.html', number: 32, label: 'March 2021', csvDate: '4/1/2021', year: 2021 },
-            { file: '33Apr2021.html', number: 33, label: 'April 2021', csvDate: '5/6/2021', year: 2021 },
-            { file: '34Jun2021.html', number: 34, label: 'June 2021', csvDate: '6/4/2021', year: 2021 },
-            { file: '35jun2021.html', number: 35, label: 'June 2021', csvDate: '7/1/2021', year: 2021 },
-            { file: '36junsurvey2021.html', number: 36, label: 'June Survey 2021', csvDate: '7/30/2021', year: 2021 },
-            { file: '37Aug2021.html', number: 37, label: 'August 2021', csvDate: '8/19/2021', year: 2021 },
-            { file: '38Oct2021.html', number: 38, label: 'October 2021', csvDate: '10/3/2021', year: 2021 },
-            { file: '39Oct2021.html', number: 39, label: 'October 2021', csvDate: '10/24/2021', year: 2021 },
-            { file: '40Nov2021.html', number: 40, label: 'November 2021', csvDate: '12/22/2021', year: 2021 },
-            { file: '41DecNPS2021.html', number: 41, label: 'December NPS 2021', csvDate: '1/28/2022', year: 2021 },
-            { file: '42Dec2021.html', number: 42, label: 'December 2021', csvDate: '1/28/2022', year: 2021 },
-            { file: '43Jan2022.html', number: 43, label: 'January 2022', csvDate: '3/10/2022', year: 2022 },
-            { file: '44Mar2022.html', number: 44, label: 'March 2022', csvDate: '6/13/2022', year: 2022 },
-            { file: '45Apr2022.html', number: 45, label: 'April 2022', csvDate: '8/3/2022', year: 2022 },
-            { file: '46May2022.html', number: 46, label: 'May 2022', csvDate: '8/17/2022', year: 2022 },
-            { file: '47Jun2022.html', number: 47, label: 'June 2022', csvDate: '9/28/2022', year: 2022 },
-            { file: '48Aug2022.html', number: 48, label: 'August 2022', csvDate: '10/17/2022', year: 2022 },
-            { file: '49Aug2022.html', number: 49, label: 'August 2022', csvDate: '11/7/2022', year: 2022 },
-            { file: '50Sept2022.html', number: 50, label: 'September 2022', csvDate: '12/5/2022', year: 2022 },
-            { file: '51Oct2022.html', number: 51, label: 'October 2022', csvDate: '1/26/2023', year: 2022 },
-            { file: '52Nov2022.html', number: 52, label: 'November 2022', csvDate: '2/15/2023', year: 2022 },
-            { file: '53Dec2022.html', number: 53, label: 'December 2022', csvDate: '3/15/2023', year: 2022 },
-            { file: '54Jan2023.html', number: 54, label: 'January 2023', csvDate: '4/18/2023', year: 2023 },
-            { file: '55Feb2023.html', number: 55, label: 'February 2023', csvDate: '5/22/2023', year: 2023 },
-            { file: '56Mar2023.html', number: 56, label: 'March 2023', csvDate: '6/9/2023', year: 2023 },
-            { file: '57Apr2023.html', number: 57, label: 'April 2023', csvDate: '6/26/2023', year: 2023 },
-            { file: '58May2023.html', number: 58, label: 'May 2023', csvDate: '7/14/2023', year: 2023 },
-            { file: '59Jun2023.html', number: 59, label: 'June 2023', csvDate: '11/7/2023', year: 2023 },
-            { file: '60Jun2023.html', number: 60, label: 'June 2023', csvDate: '12/12/2023', year: 2023 },
-            { file: '61Jul2023.html', number: 61, label: 'July 2023', csvDate: '1/22/2024', year: 2023 },
-            { file: '62Aug2023.html', number: 62, label: 'August 2023', csvDate: '2/13/2024', year: 2023 },
-            { file: '63Sep2023.html', number: 63, label: 'September 2023', csvDate: '3/19/2024', year: 2023 },
-            { file: '64Oct2023.html', number: 64, label: 'October 2023', csvDate: '4/15/2024', year: 2023 },
-            { file: '65Nov2023.html', number: 65, label: 'November 2023', csvDate: '5/14/2024', year: 2023 },
-            { file: '66Dec2023.html', number: 66, label: 'December 2023', csvDate: '6/14/2024', year: 2023 },
-            { file: '67Jan2024.html', number: 67, label: 'January 2024', csvDate: '8/13/2024', year: 2024 },
-            { file: '68Feb2024.html', number: 68, label: 'February 2024', csvDate: '9/12/2024', year: 2024 },
-            { file: '69Mar2024.html', number: 69, label: 'March 2024', csvDate: '10/1/2024', year: 2024 },
-            { file: '70Apr2024.html', number: 70, label: 'April 2024', csvDate: '11/12/2024', year: 2024 },
-            { file: '71May2024.html', number: 71, label: 'May 2024', csvDate: '12/10/2024', year: 2024 },
-            { file: '72Jun2024.html', number: 72, label: 'June 2024', csvDate: '3/10/2025', year: 2024 },
-            { file: '73Jul2024.html', number: 73, label: 'July 2024', csvDate: '4/14/2025', year: 2024 },
-            { file: '74Aug2024.html', number: 74, label: 'August 2024', csvDate: '4/29/2025', year: 2024 },
-            { file: '75Sep2024.html', number: 75, label: 'September 2024', csvDate: '5/27/2025', year: 2024 },
-            { file: '76Oct2024.html', number: 76, label: 'October 2024', csvDate: '6/3/2025', year: 2024 },
-            { file: '77Nov2024.html', number: 77, label: 'November 2024', csvDate: '6/10/2025', year: 2024 },
-            { file: '78Dec2024.html', number: 78, label: 'December 2024', csvDate: '6/17/2025', year: 2024 },
-            { file: '79Jan2025.html', number: 79, label: 'January 2025', csvDate: '6/23/2025', year: 2025 },
-            { file: '80Feb2025.html', number: 80, label: 'February 2025', csvDate: '7/15/2025', year: 2025 },
-            { file: '81March2025.html', number: 81, label: 'March 2025', csvDate: '8/11/2025', year: 2025 },
-            { file: '82April2025.html', number: 82, label: 'April 2025', csvDate: '9/15/2025', year: 2025 },
-            { file: '83April2025_DevLive.html', number: 83, label: 'April 2025 DevLive', csvDate: '10/24/2025', year: 2025 },
-            { file: '84May2025.html', number: 84, label: 'May 2025', csvDate: '11/11/2025', year: 2025 },
-            { file: '85June2025_NPS.html', number: 85, label: 'June 2025 NPS', csvDate: '11/19/2025', year: 2025 },
-            { file: '86June2025_DevLive.html', number: 86, label: 'June 2025 DevLive', csvDate: '11/19/2025', year: 2025 },
-            { file: '87June2025_DevLive.html', number: 87, label: 'June 2025 DevLive', csvDate: '11/19/2025', year: 2025 },
-            { file: '88July2025.html', number: 88, label: 'July 2025', csvDate: '11/19/2025', year: 2025 },
-            { file: '89Sept2025.html', number: 89, label: 'September 2025', csvDate: '11/19/2025', year: 2025 },
-            { file: '90Oct2025.html', number: 90, label: 'October 2025', csvDate: '11/19/2025', year: 2025 },
-            { file: '91Nov2025.html', number: 91, label: 'November 2025', csvDate: '11/19/2025', year: 2025 },
-            { file: '92NovNPS2025.html', number: 92, label: 'November NPS 2025', csvDate: '11/19/2025', year: 2025 },
-            { file: '10March2025.html', number: 10, label: 'March 2025', csvDate: '3/10/2025', year: 2025 },
-            { file: 'EOL_Creative_SDK.html', number: null, label: 'EOL Creative SDK', csvDate: null, year: null }
+            { file: '01July2018.html', number: 1, label: 'July 2018', date: 'July 2018', year: 2018 },
+            { file: '02Aug2018.html', number: 2, label: 'August 2018', date: 'Aug 2018', year: 2018 },
+            { file: '03Sep2018.html', number: 3, label: 'September 2018', date: 'Sep 2018', year: 2018 },
+            { file: '04Oct2018.html', number: 4, label: 'October 2018', date: 'Oct 2018', year: 2018 },
+            { file: '05Nov2018.html', number: 5, label: 'November 2018', date: 'Nov 2018', year: 2018 },
+            { file: '06Dec2018.html', number: 6, label: 'December 2018', date: 'Dec 2018', year: 2018 },
+            { file: '07Jan2019.html', number: 7, label: 'January 2019', date: 'Jan 2019', year: 2019 },
+            { file: '08Feb2019.html', number: 8, label: 'February 2019', date: 'Feb 2019', year: 2019 },
+            { file: '09Mar2019.html', number: 9, label: 'March 2019', date: 'Mar 2019', year: 2019 },
+            { file: '10Apr2019.html', number: 10, label: 'April 2019', date: 'Apr 2019', year: 2019 },
+            { file: '11may2019.html', number: 11, label: 'May 2019', date: 'May 2019', year: 2019 },
+            { file: '12Jun2019.html', number: 12, label: 'June 2019', date: 'Jun 2019', year: 2019 },
+            { file: '13Jul2019.html', number: 13, label: 'July 2019', date: 'Jul 2019', year: 2019 },
+            { file: '14Aug2019.html', number: 14, label: 'August 2019', date: 'Aug 2019', year: 2019 },
+            { file: '15Sep2019.html', number: 15, label: 'September 2019', date: 'Sep 2019', year: 2019 },
+            { file: '16Oct2019.html', number: 16, label: 'October 2019', date: 'Oct 2019', year: 2019 },
+            { file: '17Nov2019.html', number: 17, label: 'November 2019', date: 'Nov 2019', year: 2019 },
+            { file: '18Dec2019.html', number: 18, label: 'December 2019', date: 'Dec 2019', year: 2019 },
+            { file: '19Feb2020.html', number: 19, label: 'February 2020', date: 'Feb 2020', year: 2020 },
+            { file: '20Mar2020.html', number: 20, label: 'March 2020', date: 'Mar 2020', year: 2020 },
+            { file: '21May2020.html', number: 21, label: 'May 2020', date: 'May 2020', year: 2020 },
+            { file: '22June2020.html', number: 22, label: 'June 2020', date: 'Jun 2020', year: 2020 },
+            { file: '23June2020.html', number: 23, label: 'June 2020', date: 'Jun 2020', year: 2020 },
+            { file: '24Jul2020.html', number: 24, label: 'July 2020', date: 'Jul 2020', year: 2020 },
+            { file: '25Aug2020.html', number: 25, label: 'August 2020', date: 'Aug 2020', year: 2020 },
+            { file: '26Sep2020.html', number: 26, label: 'September 2020', date: 'Sep 2020', year: 2020 },
+            { file: '27Oct2020.html', number: 27, label: 'October 2020', date: 'Oct 2020', year: 2020 },
+            { file: '28Nov2020.html', number: 28, label: 'November 2020', date: 'Nov 2020', year: 2020 },
+            { file: '29Dec2020.html', number: 29, label: 'December 2020', date: 'Dec 2020', year: 2020 },
+            { file: '30Jan2021.html', number: 30, label: 'January 2021', date: 'Jan 2021', year: 2021 },
+            { file: '31Feb2021.html', number: 31, label: 'February 2021', date: 'Feb 2021', year: 2021 },
+            { file: '32Mar2021.html', number: 32, label: 'March 2021', date: 'Mar 2021', year: 2021 },
+            { file: '33Apr2021.html', number: 33, label: 'April 2021', date: 'Apr 2021', year: 2021 },
+            { file: '34Jun2021.html', number: 34, label: 'June 2021', date: 'Jun 2021', year: 2021 },
+            { file: '35jun2021.html', number: 35, label: 'June 2021', date: 'Jun 2021', year: 2021 },
+            { file: '36junsurvey2021.html', number: 36, label: 'June Survey 2021', date: 'Jun 2021', year: 2021 },
+            { file: '37Aug2021.html', number: 37, label: 'August 2021', date: 'Aug 2021', year: 2021 },
+            { file: '38Oct2021.html', number: 38, label: 'October 2021', date: 'Oct 2021', year: 2021 },
+            { file: '39Oct2021.html', number: 39, label: 'October 2021', date: 'Oct 2021', year: 2021 },
+            { file: '40Nov2021.html', number: 40, label: 'November 2021', date: 'Nov 2021', year: 2021 },
+            { file: '41DecNPS2021.html', number: 41, label: 'December NPS 2021', date: 'Dec 2021', year: 2021 },
+            { file: '42Dec2021.html', number: 42, label: 'December 2021', date: 'Dec 2021', year: 2021 },
+            { file: '43Jan2022.html', number: 43, label: 'January 2022', date: 'Jan 2022', year: 2022 },
+            { file: '44Mar2022.html', number: 44, label: 'March 2022', date: 'Mar 2022', year: 2022 },
+            { file: '45Apr2022.html', number: 45, label: 'April 2022', date: 'Apr 2022', year: 2022 },
+            { file: '46May2022.html', number: 46, label: 'May 2022', date: 'May 2022', year: 2022 },
+            { file: '47Jun2022.html', number: 47, label: 'June 2022', date: 'Jun 2022', year: 2022 },
+            { file: '48Aug2022.html', number: 48, label: 'August 2022', date: 'Aug 2022', year: 2022 },
+            { file: '49Aug2022.html', number: 49, label: 'August 2022', date: 'Aug 2022', year: 2022 },
+            { file: '50Sept2022.html', number: 50, label: 'September 2022', date: 'Sep 2022', year: 2022 },
+            { file: '51Oct2022.html', number: 51, label: 'October 2022', date: 'Oct 2022', year: 2022 },
+            { file: '52Nov2022.html', number: 52, label: 'November 2022', date: 'Nov 2022', year: 2022 },
+            { file: '53Dec2022.html', number: 53, label: 'December 2022', date: 'Dec 2022', year: 2022 },
+            { file: '54Jan2023.html', number: 54, label: 'January 2023', date: 'Jan 2023', year: 2023 },
+            { file: '55Feb2023.html', number: 55, label: 'February 2023', date: 'Feb 2023', year: 2023 },
+            { file: '56Mar2023.html', number: 56, label: 'March 2023', date: 'Mar 2023', year: 2023 },
+            { file: '57Apr2023.html', number: 57, label: 'April 2023', date: 'Apr 2023', year: 2023 },
+            { file: '58May2023.html', number: 58, label: 'May 2023', date: 'May 2023', year: 2023 },
+            { file: '59Jun2023.html', number: 59, label: 'June 2023', date: 'Jun 2023', year: 2023 },
+            { file: '60Jun2023.html', number: 60, label: 'June 2023', date: 'Jun 2023', year: 2023 },
+            { file: '61Jul2023.html', number: 61, label: 'July 2023', date: 'Jul 2023', year: 2023 },
+            { file: '62Aug2023.html', number: 62, label: 'August 2023', date: 'Aug 2023', year: 2023 },
+            { file: '63Sep2023.html', number: 63, label: 'September 2023', date: 'Sep 2023', year: 2023 },
+            { file: '64Oct2023.html', number: 64, label: 'October 2023', date: 'Oct 2023', year: 2023 },
+            { file: '65Nov2023.html', number: 65, label: 'November 2023', date: 'Nov 2023', year: 2023 },
+            { file: '66Dec2023.html', number: 66, label: 'December 2023', date: 'Dec 2023', year: 2023 },
+            { file: '67Jan2024.html', number: 67, label: 'January 2024', date: 'Jan 2024', year: 2024 },
+            { file: '68Feb2024.html', number: 68, label: 'February 2024', date: 'Feb 2024', year: 2024 },
+            { file: '69Mar2024.html', number: 69, label: 'March 2024', date: 'Mar 2024', year: 2024 },
+            { file: '70Apr2024.html', number: 70, label: 'April 2024', date: 'Apr 2024', year: 2024 },
+            { file: '71May2024.html', number: 71, label: 'May 2024', date: 'May 2024', year: 2024 },
+            { file: '72Jun2024.html', number: 72, label: 'June 2024', date: 'Jun 2024', year: 2024 },
+            { file: '73Jul2024.html', number: 73, label: 'July 2024', date: 'Jul 2024', year: 2024 },
+            { file: '74Aug2024.html', number: 74, label: 'August 2024', date: 'Aug 2024', year: 2024 },
+            { file: '75Sep2024.html', number: 75, label: 'September 2024', date: 'Sep 2024', year: 2024 },
+            { file: '76Oct2024.html', number: 76, label: 'October 2024', date: 'Oct 2024', year: 2024 },
+            { file: '77Nov2024.html', number: 77, label: 'November 2024', date: 'Nov 2024', year: 2024 },
+            { file: '78Dec2024.html', number: 78, label: 'December 2024', date: 'Dec 2024', year: 2024 },
+            { file: '79Jan2025.html', number: 79, label: 'January 2025', date: 'Jan 2025', year: 2025 },
+            { file: '80Feb2025.html', number: 80, label: 'February 2025', date: 'Feb 2025', year: 2025 },
+            { file: '81March2025.html', number: 81, label: 'March 2025', date: 'Mar 2025', year: 2025 },
+            { file: '82April2025.html', number: 82, label: 'April 2025', date: 'Apr 2025', year: 2025 },
+            { file: '83April2025_DevLive.html', number: 83, label: 'April 2025 DevLive', date: 'Apr 2025', year: 2025 },
+            { file: '84May2025.html', number: 84, label: 'May 2025', date: 'May 2025', year: 2025 },
+            { file: '85June2025_NPS.html', number: 85, label: 'June 2025 NPS', date: 'Jun 2025', year: 2025 },
+            { file: '86June2025_DevLive.html', number: 86, label: 'June 2025 DevLive', date: 'Jun 2025', year: 2025 },
+            { file: '87June2025_DevLive.html', number: 87, label: 'June 2025 DevLive', date: 'Jun 2025', year: 2025 },
+            { file: '88July2025.html', number: 88, label: 'July 2025', date: 'Jul 2025', year: 2025 },
+            { file: '89Sept2025.html', number: 89, label: 'September 2025', date: 'Sep 2025', year: 2025 },
+            { file: '90Oct2025.html', number: 90, label: 'October 2025', date: 'Oct 2025', year: 2025 },
+            { file: '91Nov2025.html', number: 91, label: 'November 2025', date: 'Nov 2025', year: 2025 },
+            { file: '92NovNPS2025.html', number: 92, label: 'November NPS 2025', date: 'Nov 2025', year: 2025 },
+            { file: '10March2025.html', number: 10, label: 'March 2025', date: 'Mar 2025', year: 2025 },
+            { file: 'EOL_Creative_SDK.html', number: null, label: 'EOL Creative SDK', date: 'Special', year: null }
         ];
 
         let newsletterContents = {};
         let currentFilter = 'all';
 
+        // Initialize
         document.addEventListener('DOMContentLoaded', init);
 
         async function init() {
@@ -486,28 +404,26 @@
                     const response = await fetch(newsletter.file);
                     if (response.ok) {
                         const text = await response.text();
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = text;
-                        const content = tempDiv.innerText || tempDiv.textContent || '';
+                        // Extract text content by removing HTML tags
+                        const div = document.createElement('div');
+                        div.innerHTML = text;
+                        const content = div.innerText || div.textContent || '';
                         newsletterContents[newsletter.file] = content;
                     }
                 } catch (error) {
-                    console.log('Could not load ' + newsletter.file);
+                    console.log(`Could not load ${newsletter.file}`);
                 }
             }
             
             loading.style.display = 'none';
         }
 
-        function renderNewletters(searchTerm, yearFilter) {
-            searchTerm = searchTerm || '';
-            yearFilter = yearFilter || 'all';
-            
+        function renderNewletters(searchTerm = '', yearFilter = 'all') {
             const grid = document.getElementById('newsletterGrid');
             const noResults = document.getElementById('noResults');
             grid.innerHTML = '';
 
-            let filtered = newsletters.filter(function(nl) {
+            let filtered = newsletters.filter(nl => {
                 const yearMatch = yearFilter === 'all' || nl.year === parseInt(yearFilter);
                 
                 if (!searchTerm) {
@@ -515,18 +431,7 @@
                 }
 
                 const content = newsletterContents[nl.file] || '';
-                return yearMatch && content.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
-            });
-
-            // Sort: reverse chronological for "all years", chronological for specific years
-            filtered.sort(function(a, b) {
-                if (yearFilter === 'all') {
-                    // For all years, show newest first (reverse chronological by number)
-                    return b.number - a.number;
-                } else {
-                    // For specific years, show oldest first (chronological by number)
-                    return a.number - b.number;
-                }
+                return yearMatch && content.toLowerCase().includes(searchTerm.toLowerCase());
             });
 
             if (filtered.length === 0) {
@@ -536,18 +441,23 @@
 
             noResults.style.display = 'none';
 
-            filtered.forEach(function(newsletter) {
+            filtered.forEach(newsletter => {
                 const card = document.createElement('div');
                 card.className = 'newsletter-card';
-                card.onclick = function(e) {
-                    e.preventDefault();
-                    window.open(newsletter.file, '_blank');
-                };
+                card.onclick = () => window.location.href = newsletter.file;
 
-                const numberDisplay = newsletter.number ? '#' + newsletter.number : 'Special';
-                const subjectText = newsletter.csvDate && subjectLines[newsletter.csvDate] ? subjectLines[newsletter.csvDate] : 'Special Edition';
+                const numberDisplay = newsletter.number ? `#${newsletter.number}` : 'Special';
                 
-                card.innerHTML = '<div class="thumbnail"><div class="thumbnail-number">' + numberDisplay + '</div><div class="thumbnail-content">📰</div></div><div class="card-info"><div class="card-label">' + newsletter.label + '</div><div class="card-date">' + subjectText + '</div></div>';
+                card.innerHTML = `
+                    <div class="thumbnail">
+                        <div class="thumbnail-number">${numberDisplay}</div>
+                        <div class="thumbnail-content">📰</div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-label">${newsletter.label}</div>
+                        <div class="card-date">${newsletter.date}</div>
+                    </div>
+                `;
 
                 grid.appendChild(card);
             });
@@ -557,7 +467,7 @@
             const searchInput = document.getElementById('searchInput');
             const filterButtons = document.querySelectorAll('.filter-button');
 
-            searchInput.addEventListener('input', function(e) {
+            searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value;
                 
                 if (searchTerm.length > 0) {
@@ -568,11 +478,9 @@
                 }
             });
 
-            filterButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    filterButtons.forEach(function(b) {
-                        b.classList.remove('active');
-                    });
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
                     e.target.classList.add('active');
                     currentFilter = e.target.dataset.year;
                     
@@ -583,15 +491,17 @@
         }
 
         function showSearchResults(searchTerm) {
+            const searchResults = document.getElementById('searchResults');
             const resultsContainer = document.getElementById('searchResults');
             
             const matches = [];
             const lowerSearch = searchTerm.toLowerCase();
 
-            newsletters.forEach(function(newsletter) {
+            newsletters.forEach(newsletter => {
                 const content = newsletterContents[newsletter.file] || '';
                 
-                if (content.toLowerCase().indexOf(lowerSearch) !== -1) {
+                if (content.toLowerCase().includes(lowerSearch)) {
+                    // Find context around the match
                     const index = content.toLowerCase().indexOf(lowerSearch);
                     const start = Math.max(0, index - 50);
                     const end = Math.min(content.length, index + searchTerm.length + 50);
@@ -600,14 +510,13 @@
                     if (start > 0) preview = '...' + preview;
                     if (end < content.length) preview = preview + '...';
 
-                    const regex = new RegExp('(' + searchTerm + ')', 'gi');
+                    // Highlight the search term in preview
+                    const regex = new RegExp(`(${searchTerm})`, 'gi');
                     preview = preview.replace(regex, '<span class="highlight">$1</span>');
 
                     matches.push({
-                        file: newsletter.file,
-                        label: newsletter.label,
-                        number: newsletter.number,
-                        preview: preview
+                        ...newsletter,
+                        preview
                     });
                 }
             });
@@ -617,17 +526,17 @@
             if (matches.length > 0) {
                 const title = document.createElement('div');
                 title.style.cssText = 'padding: 15px; font-weight: bold; color: #0066cc;';
-                title.textContent = 'Found in ' + matches.length + ' newsletter' + (matches.length !== 1 ? 's' : '');
+                title.textContent = `Found in ${matches.length} newsletter${matches.length !== 1 ? 's' : ''}`;
                 resultsContainer.appendChild(title);
 
-                matches.forEach(function(match) {
+                matches.forEach(match => {
                     const result = document.createElement('div');
                     result.className = 'search-result-item';
-                    result.onclick = function(e) {
-                        e.preventDefault();
-                        window.open(match.file, '_blank');
-                    };
-                    result.innerHTML = '<div class="search-result-title">' + match.label + ' (#' + (match.number || 'Special') + ')</div><div class="search-result-preview">' + match.preview + '</div>';
+                    result.onclick = () => window.location.href = match.file;
+                    result.innerHTML = `
+                        <div class="search-result-title">${match.label} (#${match.number || 'Special'})</div>
+                        <div class="search-result-preview">${match.preview}</div>
+                    `;
                     resultsContainer.appendChild(result);
                 });
 
