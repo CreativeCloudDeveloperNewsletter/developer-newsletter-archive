@@ -545,7 +545,7 @@
                 };
 
                 const numberDisplay = newsletter.number ? '#' + newsletter.number : 'Special';
-                const subjectText = newsletter.csvDate && subjectLines[newsletter.csvDate] ? subjectLines[newsletter.csvDate] : 'Special Edition';
+                const subjectText = newsletter.number && subjectLines[newsletter.number] ? subjectLines[newsletter.number] : 'Special Edition';
                 
                 card.innerHTML = '<div class="thumbnail"><div class="thumbnail-number">' + numberDisplay + '</div><div class="thumbnail-content">📰</div></div><div class="card-info"><div class="card-label">' + newsletter.label + '</div><div class="card-date">' + subjectText + '</div></div>';
 
